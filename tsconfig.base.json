@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@exe/components": ["libs/components/src/index.ts"]
+      "@exe/components": ["libs/components/src/index.ts"],
+      "@exe/data-access": ["libs/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
