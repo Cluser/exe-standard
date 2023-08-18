@@ -1,25 +1,25 @@
 {
-  "name": "client-web",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "client-client-web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "exe",
-  "sourceRoot": "apps/client-web/src",
+  "sourceRoot": "apps/client/client-web/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/client-web",
-        "index": "apps/client-web/src/index.html",
-        "main": "apps/client-web/src/main.ts",
+        "outputPath": "dist/apps/client/client-web",
+        "index": "apps/client/client-web/src/index.html",
+        "main": "apps/client/client-web/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/client-web/tsconfig.app.json",
+        "tsConfig": "apps/client/client-web/tsconfig.app.json",
         "assets": [
-          "apps/client-web/src/favicon.ico",
-          "apps/client-web/src/assets"
+          "apps/client/client-web/src/favicon.ico",
+          "apps/client/client-web/src/assets"
         ],
-        "styles": ["apps/client-web/src/styles.scss"],
+        "styles": ["apps/client/client-web/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "client-web:build:production"
+          "browserTarget": "client-client-web:build:production"
         },
         "development": {
-          "browserTarget": "client-web:build:development"
+          "browserTarget": "client-client-web:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "client-web:build"
+        "browserTarget": "client-client-web:build"
       }
     },
     "lint": {
@@ -72,8 +72,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/client-web/**/*.ts",
-          "apps/client-web/**/*.html"
+          "apps/client/client-web/**/*.ts",
+          "apps/client/client-web/**/*.html"
         ]
       }
     },
@@ -81,7 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/client-web/jest.config.ts",
+        "jestConfig": "apps/client/client-web/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -94,7 +94,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "client-web:build"
+        "buildTarget": "client-client-web:build"
       }
     }
   }

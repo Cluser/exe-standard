@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppService } from '@exe/data-access'
+import { AppService } from '@exe/data-access';
 
 @Component({
   standalone: true,
@@ -18,6 +18,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.api.userControllerGetUsers().subscribe((users) => {
       console.log(users);
-    })
+    });
   }
 }
