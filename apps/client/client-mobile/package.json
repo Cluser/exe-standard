@@ -1,0 +1,6 @@
+{
+  "name": "@exe/client/client-mobile",
+  "devDependencies": {
+    "@capacitor/cli": "^3.2.5"
+  }
+}
