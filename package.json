@@ -7,7 +7,7 @@
     "start:server-api": "nx serve server-api",
     "e2e:client-web": "nx e2e client-web-e2e --watch",
     "e2e:server-api": "nx e2e server-api-e2e --watch",
-    "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/data-access/src/lib"
+    "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client-web/data-access/src/lib"
   },
   "private": true,
   "dependencies": {
