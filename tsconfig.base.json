@@ -20,6 +20,9 @@
       ],
       "@exe/client/shared/data-access": [
         "libs/client/shared/data-access/src/index.ts"
+      ],
+      "@exe/server/server-api/feature/feature-user": [
+        "libs/server/server-api/feature/feature-user/src/index.ts"
       ]
     }
   },
