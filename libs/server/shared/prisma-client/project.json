@@ -24,6 +24,42 @@
           "codeCoverage": true
         }
       }
+    },
+    "prisma": {
+      "command": "prisma",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
+    "migrate": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
+    "db-pull": {
+      "command": "prisma db pull",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
+    "db-push": {
+      "command": "prisma db push",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
+    "studio": {
+      "command": "prisma studio",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
     }
   },
   "tags": ["prisma-client"]
