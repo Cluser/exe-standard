@@ -60,6 +60,9 @@
       "options": {
         "cwd": "libs/server/shared/prisma-client"
       }
+    },
+    "seed": {
+      "command": "ts-node ./prisma/seed.ts"
     }
   },
   "tags": ["prisma-client"]

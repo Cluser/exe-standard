@@ -1,15 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { UserService } from './user.service';
+import { ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
+import { PrismaClientService } from 'libs/server/shared/prisma-client/src/lib/prisma-client.service';
 
 @ApiTags('App')
 @Controller()
 export class UserController {
-  constructor(private readonly usersService: UserService) {}
+  constructor(private readonly usersService: PrismaClientService) {}
 
   @Get('getUsers')
-  getUsers(): User {
-    return this.usersService.getUsers() as User;
+  getUsers(): Promise<User> {
+    return this.usersService.getUsers();
   }
 }
