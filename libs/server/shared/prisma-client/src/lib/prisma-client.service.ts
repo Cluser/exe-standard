@@ -8,11 +8,10 @@ export class PrismaClientService extends PrismaClient implements OnModuleInit, O
   }
 
   async onModuleDestroy() {
-    this.$disconnect();
+    await this.$disconnect();
   }
 
-  async getUsers(): Promise<User> {
-    console.log('ddddddddd')
-    return await this.user.findFirst() as User;
+  async getUsers(): Promise<User[]> {
+    return await this.user.findMany();
   }
 }
