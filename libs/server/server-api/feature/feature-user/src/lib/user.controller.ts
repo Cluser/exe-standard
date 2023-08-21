@@ -6,15 +6,15 @@ import { UserService } from './user.service';
 @ApiTags('App')
 @Controller()
 export class UserController {
-  constructor(private readonly usersService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Get('getUsers')
   getUsers(): Promise<User[]> {
-    return this.usersService.getUsers();
+    return this.userService.getUsers();
   }
 
   @Post('createUser')
   createUser(): Promise<User> {
-    return this.usersService.createUser();
+    return this.userService.createUser();
   }
 }
