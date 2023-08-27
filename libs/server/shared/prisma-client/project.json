@@ -43,6 +43,12 @@
         "cwd": "libs/server/shared/prisma-client"
       }
     },
+    "migrate-reset": {
+      "command": "prisma migrate reset",
+      "options": {
+        "cwd": "libs/server/shared/prisma-client"
+      }
+    },
     "db-pull": {
       "command": "prisma db pull",
       "options": {
