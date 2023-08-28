@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppService } from '@exe/client/shared/data-access';
 
 @Component({
   standalone: true,
@@ -10,14 +9,4 @@ import { AppService } from '@exe/client/shared/data-access';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'client-web';
-
-  constructor(private api: AppService) {}
-
-  ngOnInit(): void {
-    this.api.userControllerGetUsers().subscribe((users) => {
-      console.log(users);
-    });
-  }
-}
+export class AppComponent {}

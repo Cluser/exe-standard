@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@exe/client/client-web/feature/feature-dashboard": [
+        "libs/client/client-web/feature/feature-dashboard/src/index.ts"
+      ],
       "@exe/client/client-web/shared/auth-keycloak": [
         "libs/client/client-web/shared/auth-keycloak/src/index.ts"
       ],
