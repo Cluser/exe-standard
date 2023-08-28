@@ -8,7 +8,7 @@ import { AuthGuard, KeycloakConnectModule, PolicyEnforcementMode, ResourceGuard,
       authServerUrl: 'http://localhost:28080',
       realm: 'execode',
       clientId: 'nest-app',
-      secret: 'secret',   
+      secret: '8weBurdwP4nLbSZDY3crmMGOX3MHNhVO',   
       policyEnforcement: PolicyEnforcementMode.PERMISSIVE,
       tokenValidation: TokenValidation.ONLINE
     })    
