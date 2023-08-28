@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '@exe/client/shared/data-access';
+import { KeycloakService } from 'keycloak-angular'
 
 @Component({
   selector: 'exe-feature-dashboard',

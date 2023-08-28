@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -11,24 +11,22 @@ function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'nest-app'
       },
       initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html'
+        onLoad: 'login-required'
       }
     });
 }
 
 @NgModule({
-  declarations: [],
-  imports: [BrowserModule, KeycloakAngularModule],
+  imports: [CommonModule, KeycloakAngularModule],
   providers: [
+    KeycloakService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
   ],
-  bootstrap: []
+  exports: [KeycloakAngularModule]
 })
 export class AuthKeycloakModule {}

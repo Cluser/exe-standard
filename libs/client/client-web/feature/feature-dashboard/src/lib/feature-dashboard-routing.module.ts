@@ -5,7 +5,7 @@ import { FeatureDashboardComponent } from './feature-dashboard.component';
 export const routes: Routes = [
     { 
         path: '', 
-        component: FeatureDashboardComponent 
+        component: FeatureDashboardComponent
     }
 ];
 
