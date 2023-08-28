@@ -24,6 +24,9 @@
       "@exe/server/server-api/feature/feature-user": [
         "libs/server/server-api/feature/feature-user/src/index.ts"
       ],
+      "@exe/server/shared/auth-keycloak": [
+        "libs/server/shared/auth-keycloak/src/index.ts"
+      ],
       "@exe/server/shared/prisma-client": [
         "libs/server/shared/prisma-client/src/index.ts"
       ]
