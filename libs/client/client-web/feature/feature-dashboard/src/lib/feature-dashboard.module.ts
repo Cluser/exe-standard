@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeatureDashboardComponent } from './feature-dashboard.component';
-import { RouterModule } from '@angular/router';
-import { featureDashboardRoutes } from './feature-dashboard.routes';
+import { FeatureDashboardRoutingModule } from './feature-dashboard-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(featureDashboardRoutes)
+    FeatureDashboardRoutingModule
   ],
   declarations: [FeatureDashboardComponent],
 })
