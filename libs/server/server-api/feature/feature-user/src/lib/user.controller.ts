@@ -2,6 +2,7 @@ import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
+import { Roles } from 'nest-keycloak-connect';
 
 @ApiTags('App')
 @ApiBearerAuth('access-token')
@@ -15,6 +16,7 @@ export class UserController {
   }
 
   @Post('updateUser')
+  @Roles({ roles: ['admin'] })
   updateUser(): Promise<User> {
     return this.userService.updateUser();
   }

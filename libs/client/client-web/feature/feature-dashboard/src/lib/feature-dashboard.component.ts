@@ -9,11 +9,23 @@ import { KeycloakService } from 'keycloak-angular'
 })
 export class FeatureDashboardComponent implements OnInit {
 
-  constructor(private api: AppService) {}
+  constructor(private api: AppService, private keycloakService: KeycloakService) {}
 
   ngOnInit(): void {
     this.api.userControllerGetUsers().subscribe((users) => {
       console.log(users);
-    });
+      // console.log(this.keycloakService.getUsername());
+      this.keycloakService.getToken().then((token) => {
+        console.log(token);
+      });
+
+      console.log(this.keycloakService.getUserRoles());
+      // this.keycloakService.logout();
+      console.log(this.keycloakService.getUsername());
+    });   
+  }
+
+  onLogoutClick(): void {
+    this.keycloakService.logout();
   }
 }

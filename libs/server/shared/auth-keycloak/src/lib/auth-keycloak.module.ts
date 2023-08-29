@@ -10,7 +10,7 @@ import { AuthGuard, KeycloakConnectModule, PolicyEnforcementMode, ResourceGuard,
       clientId: 'nest-app',
       secret: '8weBurdwP4nLbSZDY3crmMGOX3MHNhVO',   
       policyEnforcement: PolicyEnforcementMode.PERMISSIVE,
-      tokenValidation: TokenValidation.ONLINE
+      tokenValidation: TokenValidation.OFFLINE
     })    
   ],
   providers: [
