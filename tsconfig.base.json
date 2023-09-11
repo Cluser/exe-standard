@@ -30,6 +30,7 @@
       "@exe/client/shared/data-access": [
         "libs/client/shared/data-access/src/index.ts"
       ],
+      "@exe/client/shared/styles": ["libs/client/shared/styles/src/index.scss"],
       "@exe/server/server-api/feature/feature-user": [
         "libs/server/server-api/feature/feature-user/src/index.ts"
       ],
