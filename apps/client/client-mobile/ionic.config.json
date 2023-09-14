@@ -1,5 +1,5 @@
 {
-  "name": "client-mobile",
+  "name": "client/client-mobile",
   "integrations": {
     "capacitor": {}
   },
