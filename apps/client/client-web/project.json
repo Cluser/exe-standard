@@ -19,8 +19,16 @@
           "apps/client/client-web/src/favicon.ico",
           "apps/client/client-web/src/assets"
         ],
-        "styles": ["apps/client/client-web/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/client/client-web/src/styles.scss",
+          "libs/client/shared/styles/src/index.scss"
+        ],
+        "scripts": [],
+        "stylePreprocessorOptions": {
+            "includePaths": [
+              "libs/client/shared/styles/src"
+            ]
+        }
       },
       "configurations": {
         "production": {
