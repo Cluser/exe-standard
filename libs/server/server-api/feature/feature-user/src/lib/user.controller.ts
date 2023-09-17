@@ -4,6 +4,7 @@ import { User } from '@prisma/client';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
 
+
 @ApiTags('App')
 @ApiBearerAuth('access-token')
 @Controller()

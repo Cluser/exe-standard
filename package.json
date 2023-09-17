@@ -6,7 +6,7 @@
     "start:client-web": "nx serve client-client-web",
     "start:client-mobile": "nx serve client-client-mobile",
     "start:server-api": "nx serve server-server-api",
-    "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client-web/data-access/src/lib",
+    "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client/client-web/shared/data-access/src/lib",
     "clean-node-modules": "npm prune"
   },
   "private": true,
