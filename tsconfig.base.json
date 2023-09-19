@@ -28,7 +28,7 @@
         "libs/client/shared/components/src/index.ts"
       ],
       "@exe/client/shared/data-access": [
-        "libs/client/shared/data-access/src/index.ts"
+        "libs/client/shared/data-access/src/lib/index.ts"
       ],
       "@exe/server/server-api/feature/feature-user": [
         "libs/server/server-api/feature/feature-user/src/index.ts"
@@ -38,6 +38,9 @@
       ],
       "@exe/server/shared/logger-pino": [
         "libs/server/shared/logger-pino/src/index.ts"
+      ],
+      "@exe/server/shared/pagination": [
+        "libs/server/shared/pagination/src/index.ts"
       ],
       "@exe/server/shared/prisma-client": [
         "libs/server/shared/prisma-client/src/index.ts"

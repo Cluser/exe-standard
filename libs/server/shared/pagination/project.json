@@ -1,21 +1,21 @@
 {
-  "name": "client-shared-data-access",
+  "name": "server-shared-pagination",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/client/shared/data-access/src",
+  "sourceRoot": "libs/server/shared/pagination/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/client/shared/data-access/**/*.ts"]
+        "lintFilePatterns": ["libs/server/shared/pagination/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/client/shared/data-access/jest.config.ts",
+        "jestConfig": "libs/server/shared/pagination/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -26,5 +26,5 @@
       }
     }
   },
-  "tags": ["data-access"]
+  "tags": []
 }

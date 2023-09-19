@@ -1,11 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'client-shared-data-access',
+  displayName: 'server-shared-pagination',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../../coverage/libs/client/shared/data-access',
+  coverageDirectory: '../../../../coverage/libs/server/shared/pagination',
 };

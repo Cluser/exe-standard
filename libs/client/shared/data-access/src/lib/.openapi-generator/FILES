@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 README.md
 api.module.ts
 api/api.ts
@@ -8,5 +9,9 @@ encoder.ts
 git_push.sh
 index.ts
 model/models.ts
+model/paginatedResponseDto.ts
+model/userControllerGetUsers200Response.ts
+model/userControllerGetUsers200ResponseAllOf.ts
+model/userGetResposeDto.ts
 param.ts
 variables.ts

@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiExtraModels, ApiOkResponse, ApiTags, getSchemaPath } 
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
-import { PaginatedResponseDto } from './paginated-response.dto';
+import { PaginatedResponseDto } from '@exe/server/shared/pagination';
 import { UserGetResposeDto } from './user-get-response.dto';
 import { UserGetDto } from './user-get.dto';
 
