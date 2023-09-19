@@ -1,11 +1,11 @@
-import { Controller, Delete, Get, Post, Type, applyDecorators } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Type, applyDecorators } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiOkResponse, ApiTags, getSchemaPath } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
 import { PaginatedResponseDto } from '@exe/server/shared/pagination';
-import { UserGetResposeDto } from './user-get-response.dto';
-import { UserGetDto } from './user-get.dto';
+import { UserGetResposeDto } from './dtos/user-get-response.dto';
+import { UserGetDto } from './dtos/user-get.dto';
 
 
 export const ApiOkResponsePaginated = <DataDto extends Type<unknown>>(dataDto: DataDto) =>
@@ -36,14 +36,9 @@ export class UserController {
 
   @Get('getUsers')
   @ApiOkResponsePaginated(UserGetResposeDto)
-  async getUsers(userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
+  async getUsers(@Body() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
     return { data: await this.userService.getUsers(), totalCount: (await this.userService.getUsers()).length };
   }
-
-  // @Get('getUsers')
-  // getUsers(): Promise<User[]> {
-  //   return this.userService.getUsers();
-  // }
 
   @Post('updateUser')
   @Roles({ roles: ['admin'] })
