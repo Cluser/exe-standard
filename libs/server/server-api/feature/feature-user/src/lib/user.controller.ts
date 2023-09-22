@@ -1,32 +1,10 @@
-import { Body, Controller, Delete, Get, Post, Type, applyDecorators } from '@nestjs/common';
-import { ApiBearerAuth, ApiExtraModels, ApiOkResponse, ApiTags, getSchemaPath } from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { ApiBearerAuth, ApiExtraModels, ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
-import { PaginatedResponseDto } from '@exe/server/shared/pagination';
-import { UserGetResposeDto } from './dtos/user-get-response.dto';
-import { UserGetDto } from './dtos/user-get.dto';
-
-
-export const ApiOkResponsePaginated = <DataDto extends Type<unknown>>(dataDto: DataDto) =>
-  applyDecorators(
-    ApiExtraModels(PaginatedResponseDto, dataDto),
-    ApiOkResponse({
-      schema: {
-        allOf: [
-          { $ref: getSchemaPath(PaginatedResponseDto) },
-          {
-            properties: {
-              data: {
-                type: 'array',
-                items: { $ref: getSchemaPath(dataDto) },
-              },
-            },
-          },
-        ],
-      },
-    })
-  )
+import { ApiOkResponsePaginated, PaginatedResponseDto } from '@exe/server/shared/pagination';
+import { UserGetResposeDto, UserGetDto, UserUpdateDto, UserCreateDto } from './dtos';
 
 @ApiTags('App')
 @ApiBearerAuth('access-token')
@@ -35,19 +13,20 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('getUsers')
+  @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
-  async getUsers(@Body() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
+  async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
     return { data: await this.userService.getUsers(), totalCount: (await this.userService.getUsers()).length };
   }
 
-  @Post('updateUser')
+  @Put('updateUser')
   @Roles({ roles: ['admin'] })
-  updateUser(): Promise<User> {
+  updateUser(@Param('id') id: string, @Body() userUpdateDto: UserUpdateDto): Promise<User> {
     return this.userService.updateUser();
   }
 
   @Post('createUser')
-  createUser(): Promise<User> {
+  createUser(@Body() userCreateDto: UserCreateDto): Promise<User> {
     return this.userService.createUser();
   }
 

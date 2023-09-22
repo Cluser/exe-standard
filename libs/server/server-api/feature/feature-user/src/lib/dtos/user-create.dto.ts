@@ -2,7 +2,7 @@ import { User } from ".prisma/client";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNumber, IsOptional, IsString } from 'class-validator'
 
-export class UserGetDto implements User {
+export class UserCreateDto implements User {
     @ApiProperty()
     @IsNumber()
     @IsOptional()

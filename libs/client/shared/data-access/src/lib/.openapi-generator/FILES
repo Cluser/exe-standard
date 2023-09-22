@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 api.module.ts
 api/api.ts
@@ -12,6 +11,9 @@ model/models.ts
 model/paginatedResponseDto.ts
 model/userControllerGetUsers200Response.ts
 model/userControllerGetUsers200ResponseAllOf.ts
+model/userCreateDto.ts
+model/userGetDto.ts
 model/userGetResposeDto.ts
+model/userUpdateDto.ts
 param.ts
 variables.ts
