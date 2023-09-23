@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak';
+import { NgrxStoreeModule } from '@exe/client/client-web/shared/store'
 
 @NgModule({
   imports: [
@@ -10,6 +11,7 @@ import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak'
     BrowserAnimationsModule,
     HttpClientModule,
     AuthKeycloakModule,
+    NgrxStoreeModule
   ],
   exports: [
     BrowserModule,

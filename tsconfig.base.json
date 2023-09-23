@@ -27,6 +27,9 @@
       "@exe/client/client-web/shared/shared": [
         "libs/client/client-web/shared/shared/src/index.ts"
       ],
+      "@exe/client/client-web/shared/store": [
+        "libs/client/client-web/shared/store/src/index.ts"
+      ],
       "@exe/client/shared/components": [
         "libs/client/shared/components/src/index.ts"
       ],
