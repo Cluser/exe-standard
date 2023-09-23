@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppService } from '@exe/client/shared/data-access';
+import { AppService, UserGetDto } from '@exe/client/shared/data-access';
 import { KeycloakService } from 'keycloak-angular';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class FeatureDashboardFacadeService {
     ) {}
 
     getToken(): void {
-        this.api.userControllerGetUsers().subscribe((users) => {
+        this.api.userControllerGetUsers(0, '',  '').subscribe((users) => {
             console.log(users);
             this.keycloakService.getToken().then((token) => {
                 console.log(token);
