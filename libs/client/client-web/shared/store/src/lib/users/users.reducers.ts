@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import * as fromBooks from './index';
+import * as fromUsers from './index';
 
 export const initialUsersState = {
     users: [],
@@ -8,10 +8,17 @@ export const initialUsersState = {
 
 const reducer = createReducer(
     initialUsersState,
-    on(fromBooks.getUsers, (state) => {
+    on(fromUsers.getUsers, (state) => {
         return {
             ...state,
             isLoading: true
+        };
+    }),
+    on(fromUsers.getUsersSuccess, (state, props) => {
+        return {
+            ...state,
+            isLoading: false,
+            users: [],
         };
     })
 );

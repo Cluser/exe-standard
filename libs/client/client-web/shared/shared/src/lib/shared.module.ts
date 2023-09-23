@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak';
-import { NgrxStoreeModule } from '@exe/client/client-web/shared/store'
+import { NgrxStoreModule } from '@exe/client/client-web/shared/store'
 
 @NgModule({
   imports: [
@@ -11,13 +11,14 @@ import { NgrxStoreeModule } from '@exe/client/client-web/shared/store'
     BrowserAnimationsModule,
     HttpClientModule,
     AuthKeycloakModule,
-    NgrxStoreeModule
+    NgrxStoreModule
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AuthKeycloakModule
+    AuthKeycloakModule,
+    NgrxStoreModule
   ]
 })
 export class SharedModule {}

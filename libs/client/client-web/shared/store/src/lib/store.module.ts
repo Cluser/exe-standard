@@ -12,6 +12,6 @@ import { StoreModule } from '@ngrx/store';
     StoreModule.forRoot(),
     EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({}),
-  ],
+  ]
 })
-export class NgrxStoreeModule {}
+export class NgrxStoreModule {}
