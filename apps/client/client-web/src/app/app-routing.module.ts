@@ -5,6 +5,11 @@ export const appRoutes: Route[] = [
     {
         path: '',
         loadChildren: () => import('@exe/client/client-web/feature/feature-dashboard').then(m => m.FeatureDashboardModule)
+    },
+    {
+        path: '**', 
+        pathMatch: 'full', 
+        loadChildren: () => import('@exe/client/client-web/shared/not-found').then(m => m.NotFoundModule)
     }
 ];
 
