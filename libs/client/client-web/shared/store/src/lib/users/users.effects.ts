@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AppService } from '@exe/client/shared/data-access';
 import * as fromUsers from './index';
@@ -14,19 +14,12 @@ export class UsersEffects {
         private api: AppService
     ) {}
 
-    // getUsers$ = createEffect(() =>
-    //     this.actions$.pipe(
-    //         ofType(fromUsers.getUsers.type),
-    //         switchMap(() => of()),
-    //         map(users => ({ type: '[Users] Get Users Success', payload: [{name: 'Jan', surname: 'Kowalski'}] }))
-    //     )
-    // );
-
     getUsers$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(fromUsers.getUsers.type),
+            ofType(fromUsers.fetchUsers.type),
             switchMap(() => this.api.userControllerGetUsers(0, '',  '')),
-            map(users => fromUsers.getUsersSuccess(users.data[0]))
+            map(users => fromUsers.fetchUsersSuccess({ payload: users.data })),
+            catchError((error) => of(fromUsers.fetchUsersFailure({ payload: error })))
         )
     );
 }

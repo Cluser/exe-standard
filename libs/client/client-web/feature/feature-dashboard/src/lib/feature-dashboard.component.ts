@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
-import { UsersFacadeService } from '@exe/client/client-web/shared/store';
+import { UserGetResposeDto } from '@exe/client/shared/data-access';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'exe-feature-dashboard',
@@ -9,11 +10,15 @@ import { UsersFacadeService } from '@exe/client/client-web/shared/store';
 })
 export class FeatureDashboardComponent implements OnInit {
 
-  constructor(private featureDashboardFacadeService: FeatureDashboardFacadeService, private usersFacadeService: UsersFacadeService) {}
+  constructor(private featureDashboardFacadeService: FeatureDashboardFacadeService) {}
+
+  get users(): Observable<UserGetResposeDto[]> {
+    return this.featureDashboardFacadeService.getUsers();
+  }
 
   ngOnInit(): void {
     this.featureDashboardFacadeService.getToken();
-    this.usersFacadeService.getUsers();
+    this.featureDashboardFacadeService.fetchUsers();
   }
 
   onLogoutClick(): void {

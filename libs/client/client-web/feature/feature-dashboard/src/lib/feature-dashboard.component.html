@@ -1,1 +1,7 @@
 <button class="button" (click)="onLogoutClick()">Logout</button>
+
+<ol>
+    <li *ngFor="let user of users | async">
+        {{ user.name }} {{ user.surname }}
+    </li>
+</ol>
