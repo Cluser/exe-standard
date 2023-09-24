@@ -12,13 +12,17 @@ export class FeatureDashboardComponent implements OnInit {
 
   constructor(private featureDashboardFacadeService: FeatureDashboardFacadeService) {}
 
-  get users(): Observable<UserGetResposeDto[]> {
-    return this.featureDashboardFacadeService.getUsers();
+  get users$(): Observable<UserGetResposeDto[]> {
+    return this.featureDashboardFacadeService.getUsers$();
+  }
+
+  get isUsersLoading$(): Observable<boolean> {
+    return this.featureDashboardFacadeService.isUsersLoading$();
   }
 
   ngOnInit(): void {
     this.featureDashboardFacadeService.getToken();
-    this.featureDashboardFacadeService.fetchUsers();
+    this.featureDashboardFacadeService.fetchUsers$();
     this.featureDashboardFacadeService.setLocalStorageData();
     this.featureDashboardFacadeService.getLocalStorageData();
   }

@@ -1,3 +1,7 @@
-<ng-container *ngIf="isLoading">
+<ng-container *ngIf="isLoading else content">
     <p-progressSpinner></p-progressSpinner>
 </ng-container>
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

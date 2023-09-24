@@ -1,11 +1,12 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { UserGetResposeDto } from '@exe/client/shared/data-access';
+import { HttpErrorResponse } from '@angular/common/http';
 import * as fromUsers from './index';
 
 export interface UsersState { 
     users: UserGetResposeDto[], 
     isLoading: boolean, 
-    errors: any[]
+    errors: HttpErrorResponse[]
 }
 
 export const initialUsersState: UsersState = {

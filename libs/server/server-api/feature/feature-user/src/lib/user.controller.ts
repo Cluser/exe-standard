@@ -16,7 +16,6 @@ export class UserController {
   @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
   async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
-    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     return { data: await this.userService.getUsers(), totalCount: (await this.userService.getUsers()).length };
   }
 

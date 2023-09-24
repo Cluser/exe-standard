@@ -24,12 +24,16 @@ export class FeatureDashboardFacadeService {
         console.log(this.keycloakService.getUsername());
     }
 
-    fetchUsers(): void {
+    fetchUsers$(): void {
         return this.usersFacadeService.fetchUsers();
     }
 
-    getUsers(): Observable<UserGetResposeDto[]> {
-        return this.usersFacadeService.getUsers();
+    isUsersLoading$(): Observable<boolean> {
+        return this.usersFacadeService.isUsersLoading$();
+    }
+
+    getUsers$(): Observable<UserGetResposeDto[]> {
+        return this.usersFacadeService.getUsers$();
     }
 
     logout(): void {

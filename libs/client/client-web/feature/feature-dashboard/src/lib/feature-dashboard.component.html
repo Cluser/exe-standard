@@ -1,11 +1,12 @@
-<button class="button" (click)="onLogoutClick()">Logout</button>
+<div class="container">
+    <button class="button" (click)="onLogoutClick()">Logout</button>
 
-<ol>
-    <li *ngFor="let user of users | async">
-        {{ user.name }} {{ user.surname }}
-    </li>
-</ol>
+    <exe-loader [isLoading]="isUsersLoading$ | async">
+        <ol>
+            <li *ngFor="let user of users$ | async">
+                {{ user.name }} {{ user.surname }}
+            </li>
+        </ol>
+    </exe-loader>
+</div>
 
-<exe-loader [isLoading]="true">
-
-</exe-loader>
