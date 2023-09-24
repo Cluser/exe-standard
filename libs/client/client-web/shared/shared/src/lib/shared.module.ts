@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak';
-import { NgrxStoreModule } from '@exe/client/client-web/shared/store'
-import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-errors-handler'
+import { NgrxStoreModule } from '@exe/client/client-web/shared/store';
+import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-errors-handler';
+import { LoaderModule } from '@exe/client/client-web/shared/loader';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-erro
     HttpClientModule,
     AuthKeycloakModule,
     NgrxStoreModule,
-    HttpErrorsHandlerModule
+    HttpErrorsHandlerModule,
+    LoaderModule
   ],
   exports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-erro
     HttpClientModule,
     AuthKeycloakModule,
     NgrxStoreModule,
-    HttpErrorsHandlerModule
+    HttpErrorsHandlerModule,
+    LoaderModule
   ]
 })
 export class SharedModule {}
