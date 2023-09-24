@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
@@ -16,6 +16,7 @@ export class UserController {
   @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
   async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
+    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     return { data: await this.userService.getUsers(), totalCount: (await this.userService.getUsers()).length };
   }
 

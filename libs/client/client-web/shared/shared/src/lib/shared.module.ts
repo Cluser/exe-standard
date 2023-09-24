@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak';
 import { NgrxStoreModule } from '@exe/client/client-web/shared/store'
+import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-errors-handler'
 
 @NgModule({
   imports: [
@@ -11,14 +12,16 @@ import { NgrxStoreModule } from '@exe/client/client-web/shared/store'
     BrowserAnimationsModule,
     HttpClientModule,
     AuthKeycloakModule,
-    NgrxStoreModule
+    NgrxStoreModule,
+    HttpErrorsHandlerModule
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AuthKeycloakModule,
-    NgrxStoreModule
+    NgrxStoreModule,
+    HttpErrorsHandlerModule
   ]
 })
 export class SharedModule {}

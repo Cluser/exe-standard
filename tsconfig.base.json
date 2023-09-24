@@ -21,6 +21,9 @@
       "@exe/client/client-web/shared/auth-keycloak": [
         "libs/client/client-web/shared/auth-keycloak/src/index.ts"
       ],
+      "@exe/client/client-web/shared/http-errors-handler": [
+        "libs/client/client-web/shared/http-errors-handler/src/index.ts"
+      ],
       "@exe/client/client-web/shared/local-storage": [
         "libs/client/client-web/shared/local-storage/src/index.ts"
       ],
