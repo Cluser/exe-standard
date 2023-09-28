@@ -17,7 +17,7 @@ export class UsersEffects {
     getUsers$ = createEffect(() =>
         this.actions$.pipe(
             ofType(fromUsers.fetchUsers.type),
-            switchMap(() => this.api.userControllerGetUsers(0, '',  '')),
+            switchMap(() => this.api.userControllerGetUsers(undefined, '',  '')),
             map(users => fromUsers.fetchUsersSuccess({ payload: users.data })),
             catchError((error) => of(fromUsers.fetchUsersFailure({ payload: error })))
         )

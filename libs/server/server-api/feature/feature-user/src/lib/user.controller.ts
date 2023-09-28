@@ -16,7 +16,7 @@ export class UserController {
   @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
   async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
-    return { data: await this.userService.getUsers(), totalCount: (await this.userService.getUsers()).length };
+    return { data: await this.userService.getUsers(userGet), totalCount: (await this.userService.getUsers(userGet)).length };
   }
 
   @Put('updateUser')

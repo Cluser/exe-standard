@@ -234,19 +234,10 @@ export class AppService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public userControllerGetUsers(id: number, name: string, surname: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<UserControllerGetUsers200Response>;
-    public userControllerGetUsers(id: number, name: string, surname: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<UserControllerGetUsers200Response>>;
-    public userControllerGetUsers(id: number, name: string, surname: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<UserControllerGetUsers200Response>>;
-    public userControllerGetUsers(id: number, name: string, surname: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling userControllerGetUsers.');
-        }
-        if (name === null || name === undefined) {
-            throw new Error('Required parameter name was null or undefined when calling userControllerGetUsers.');
-        }
-        if (surname === null || surname === undefined) {
-            throw new Error('Required parameter surname was null or undefined when calling userControllerGetUsers.');
-        }
+    public userControllerGetUsers(id?: number, name?: string, surname?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<UserControllerGetUsers200Response>;
+    public userControllerGetUsers(id?: number, name?: string, surname?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<UserControllerGetUsers200Response>>;
+    public userControllerGetUsers(id?: number, name?: string, surname?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<UserControllerGetUsers200Response>>;
+    public userControllerGetUsers(id?: number, name?: string, surname?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (id !== undefined && id !== null) {
