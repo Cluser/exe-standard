@@ -12,7 +12,7 @@ export class UserService {
       return this.prismaClientService.user.findMany({
         where: {
           id: { 
-            equals: Number(userGet.id)
+            equals: userGet.id
           },
           name: {
             contains: userGet.name
