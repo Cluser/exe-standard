@@ -17,8 +17,12 @@ async function bootstrap() {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   });
-  // do sprawdzenia czy jest to ok z tym transformem
-  app.useGlobalPipes(new ValidationPipe({transform: true, transformOptions: { enableImplicitConversion: true }}));
+  app.useGlobalPipes(new ValidationPipe({
+      transform: true, transformOptions: { 
+        enableImplicitConversion: true 
+      }
+    })
+  );
   const port = process.env.PORT || 3000;
 
   // Swagger configuration
