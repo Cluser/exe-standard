@@ -6,6 +6,8 @@
     "start:client-web": "nx serve client-client-web",
     "start:client-mobile": "nx serve client-client-mobile",
     "start:server-api": "nx serve server-server-api",
+    "lint:all": "nx run-many --target=lint",
+    "test:all": "nx run-many --target=test",
     "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client/shared/data-access/src/lib",
     "clean-node-modules": "npm prune"
   },
@@ -68,7 +70,7 @@
     "@nestjs/testing": "^10.2.5",
     "@nrwl/angular": "^13.0.0",
     "@nx/cypress": "16.7.1",
-    "@nx/eslint-plugin": "16.7.1",
+    "@nx/eslint-plugin": "^16.7.1",
     "@nx/jest": "16.7.2",
     "@nx/js": "16.7.2",
     "@nx/linter": "16.7.1",
