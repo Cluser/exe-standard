@@ -15,11 +15,13 @@ async function bootstrap() {
   app.setGlobalPrefix(globalPrefix);
   app.enableCors({
     origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
   });
-  app.useGlobalPipes(new ValidationPipe({
-      transform: true, transformOptions: { 
-        enableImplicitConversion: true 
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true
       }
     })
   );
@@ -33,7 +35,7 @@ async function bootstrap() {
     .addServer(`http://localhost:${port}`)
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-      'access-token',
+      'access-token'
     )
     .build();
   const document = SwaggerModule.createDocument(app, config);
