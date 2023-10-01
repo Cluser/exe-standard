@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { User } from '@prisma/client'
-import { PrismaClientService } from 'libs/server/shared/prisma-client/src/lib/prisma-client.service'
+import { PrismaClientService } from '@exe/server/shared/prisma-client'
 import { UserGetDto } from './dtos';
 
 @Injectable()
@@ -35,7 +35,7 @@ export class UserService {
           id: 1
         },
         data: {
-          name: 'Alice',
+          name: 'Alicee',
           surname: 'Doe'
         }
       });
