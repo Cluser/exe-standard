@@ -1,29 +1,10 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpException,
-  HttpStatus,
-  Param,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
-import {
-  ApiOkResponsePaginated,
-  PaginatedResponseDto,
-} from '@exe/server/shared/pagination';
-import {
-  UserGetResposeDto,
-  UserGetDto,
-  UserUpdateDto,
-  UserCreateDto,
-} from './dtos';
+import { ApiOkResponsePaginated, PaginatedResponseDto } from '@exe/server/shared/pagination';
+import { UserGetResposeDto, UserGetDto, UserUpdateDto, UserCreateDto } from './dtos';
 
 @ApiTags('App')
 @ApiBearerAuth('access-token')
@@ -34,21 +15,16 @@ export class UserController {
   @Get('getUsers')
   @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
-  async getUsers(
-    @Query() userGet: UserGetDto
-  ): Promise<PaginatedResponseDto<UserGetResposeDto>> {
+  async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
     return {
       data: await this.userService.getUsers(userGet),
-      totalCount: (await this.userService.getUsers(userGet)).length,
+      totalCount: (await this.userService.getUsers(userGet)).length
     };
   }
 
   @Put('updateUser')
   @Roles({ roles: ['admin'] })
-  updateUser(
-    @Param('id') id: string,
-    @Body() userUpdateDto: UserUpdateDto
-  ): Promise<User> {
+  updateUser(@Param('id') id: string, @Body() userUpdateDto: UserUpdateDto): Promise<User> {
     return this.userService.updateUser();
   }
 
