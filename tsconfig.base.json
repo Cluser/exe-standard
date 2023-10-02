@@ -13,8 +13,6 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-
-    // Strict mode
     "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
@@ -24,76 +22,39 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
-
-    // No unused code
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-
-    // No implicit code
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-
-    // Others
-    "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true,
-    "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
-
     "baseUrl": ".",
     "paths": {
       "@exe/client/client-web/feature/feature-dashboard": [
         "libs/client/client-web/feature/feature-dashboard/src/index.ts"
       ],
-      "@exe/client/client-web/shared/auth-keycloak": [
-        "libs/client/client-web/shared/auth-keycloak/src/index.ts"
-      ],
+      "@exe/client/client-web/shared/auth-keycloak": ["libs/client/client-web/shared/auth-keycloak/src/index.ts"],
       "@exe/client/client-web/shared/http-errors-handler": [
         "libs/client/client-web/shared/http-errors-handler/src/index.ts"
       ],
-      "@exe/client/client-web/shared/loader": [
-        "libs/client/client-web/shared/loader/src/index.ts"
-      ],
-      "@exe/client/client-web/shared/local-storage": [
-        "libs/client/client-web/shared/local-storage/src/index.ts"
-      ],
-      "@exe/client/client-web/shared/not-found": [
-        "libs/client/client-web/shared/not-found/src/index.ts"
-      ],
-      "@exe/client/client-web/shared/session-storage": [
-        "libs/client/client-web/shared/session-storage/src/index.ts"
-      ],
-      "@exe/client/client-web/shared/shared": [
-        "libs/client/client-web/shared/shared/src/index.ts"
-      ],
-      "@exe/client/client-web/shared/store": [
-        "libs/client/client-web/shared/store/src/index.ts"
-      ],
-      "@exe/client/shared/components": [
-        "libs/client/shared/components/src/index.ts"
-      ],
-      "@exe/client/shared/data-access": [
-        "libs/client/shared/data-access/src/lib/index.ts"
-      ],
-      "@exe/server/server-api/feature/feature-user": [
-        "libs/server/server-api/feature/feature-user/src/index.ts"
-      ],
-      "@exe/server/shared/auth-keycloak": [
-        "libs/server/shared/auth-keycloak/src/index.ts"
-      ],
-      "@exe/server/shared/logger-pino": [
-        "libs/server/shared/logger-pino/src/index.ts"
-      ],
-      "@exe/server/shared/pagination": [
-        "libs/server/shared/pagination/src/index.ts"
-      ],
-      "@exe/server/shared/prisma-client": [
-        "libs/server/shared/prisma-client/src/index.ts"
-      ]
+      "@exe/client/client-web/shared/loader": ["libs/client/client-web/shared/loader/src/index.ts"],
+      "@exe/client/client-web/shared/local-storage": ["libs/client/client-web/shared/local-storage/src/index.ts"],
+      "@exe/client/client-web/shared/not-found": ["libs/client/client-web/shared/not-found/src/index.ts"],
+      "@exe/client/client-web/shared/session-storage": ["libs/client/client-web/shared/session-storage/src/index.ts"],
+      "@exe/client/client-web/shared/shared": ["libs/client/client-web/shared/shared/src/index.ts"],
+      "@exe/client/client-web/shared/store": ["libs/client/client-web/shared/store/src/index.ts"],
+      "@exe/client/shared/components": ["libs/client/shared/components/src/index.ts"],
+      "@exe/client/shared/data-access": ["libs/client/shared/data-access/src/index.ts"],
+      "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
+      "@exe/server/shared/auth-keycloak": ["libs/server/shared/auth-keycloak/src/index.ts"],
+      "@exe/server/shared/logger-pino": ["libs/server/shared/logger-pino/src/index.ts"],
+      "@exe/server/shared/pagination": ["libs/server/shared/pagination/src/index.ts"],
+      "@exe/server/shared/prisma-client": ["libs/server/shared/prisma-client/src/index.ts"]
     }
   },
   "include": ["apps", "libs"],
-  "exclude": ["node_modules", "libs/client/shared/data-access"],
+  "exclude": ["node_modules"]
 }

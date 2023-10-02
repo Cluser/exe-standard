@@ -35,8 +35,6 @@ export class UserController {
 
   @Delete('deleteUser')
   deleteUser(): Promise<User> {
-    let a: any;
-
     return this.userService.deleteUser();
   }
 }
