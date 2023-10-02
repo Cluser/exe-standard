@@ -13,6 +13,35 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+
+    // Strict mode
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+
+    // No unused code
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+
+    // No implicit code
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+
+    // Others
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+
     "baseUrl": ".",
     "paths": {
       "@exe/client/client-web/feature/feature-dashboard": [
@@ -65,5 +94,6 @@
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "include": ["apps", "libs"],
+  "exclude": ["node_modules", "libs/client/shared/data-access"],
 }

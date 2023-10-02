@@ -1,60 +1,58 @@
-import { Injectable } from '@nestjs/common'
-import { User } from '@prisma/client'
-import { PrismaClientService } from 'libs/server/shared/prisma-client/src/lib/prisma-client.service'
-import { UserGetDto } from './dtos';
+import { Injectable } from '@nestjs/common';
+import { User } from '@prisma/client';
+import { PrismaClientService } from '@exe/server/shared/prisma-client';
+import { UserCreateDto, UserGetDto, UserUpdateDto } from './dtos';
 
 @Injectable()
 export class UserService {
-    constructor(private readonly prismaClientService: PrismaClientService) {}
+  constructor(private readonly prismaClientService: PrismaClientService) {}
 
-    getUsers(userGet: UserGetDto): Promise<User[]> {
-      console.log(typeof(userGet.id))
-      return this.prismaClientService.user.findMany({
-        where: {
-          id: { 
-            equals: userGet.id
-          },
-          name: {
-            contains: userGet.name
-          },
-          surname: {
-            contains: userGet.surname
-          }
+  getUsers(userGet: UserGetDto): Promise<User[]> {
+    console.log(typeof userGet.id);
+    return this.prismaClientService.user.findMany({
+      where: {
+        id: {
+          equals: userGet.id
         },
-        include: {
-          posts: true
+        name: {
+          contains: userGet.name
         },
-        skip: 0,
-        take: 100,
-      });
-    }
-
-    updateUser(): Promise<User> {
-      return this.prismaClientService.user.update({
-        where: {
-          id: 1
-        },
-        data: {
-          name: 'Alice',
-          surname: 'Doe'
+        surname: {
+          contains: userGet.surname
         }
-      });
-    }
+      },
+      include: {
+        posts: true
+      },
+      skip: 0,
+      take: 100
+    });
+  }
 
-    createUser(): Promise<User> {
-      return this.prismaClientService.user.create({
-        data: {
-          name: 'Alice',
-          surname: 'Doe'
-        }
-      });
-    }
+  updateUser(id: number, userUpdateDto: UserUpdateDto): Promise<User> {
+    return this.prismaClientService.user.update({
+      where: {
+        id: id
+      },
+      data: {
+        ...userUpdateDto
+      }
+    });
+  }
 
-    deleteUser(): Promise<User> {
-      return this.prismaClientService.user.delete({
-        where: {
-          id: 1
-        }
-      });
-    }
+  createUser(userCreateDto: UserCreateDto): Promise<User> {
+    return this.prismaClientService.user.create({
+      data: {
+        ...userCreateDto
+      }
+    });
+  }
+
+  deleteUser(): Promise<User> {
+    return this.prismaClientService.user.delete({
+      where: {
+        id: 1
+      }
+    });
+  }
 }
