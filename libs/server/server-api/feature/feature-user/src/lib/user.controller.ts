@@ -37,8 +37,4 @@ export class UserController {
   deleteUser(): Promise<User> {
     return this.userService.deleteUser();
   }
-
-  test() {
-    return '';
-  }
 }

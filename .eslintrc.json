@@ -3,13 +3,13 @@
   "ignorePatterns": ["**/*"],
   "plugins": ["@nx", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-function-return-type": "error"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@typescript-eslint/explicit-function-return-type": "error",
         "@nx/enforce-module-boundaries": [
           "error",
           {
