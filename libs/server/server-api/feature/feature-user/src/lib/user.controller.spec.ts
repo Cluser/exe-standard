@@ -1,5 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-
 import { UserController } from './user.controller';
 
 describe('AppController', () => {
@@ -8,7 +7,8 @@ describe('AppController', () => {
   beforeAll(async () => {
     app = await Test.createTestingModule({
       controllers: [UserController],
-      providers: [],
+      providers: []
     }).compile();
+    app;
   });
 });
