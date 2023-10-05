@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { UserService } from './user.service';
@@ -16,18 +16,21 @@ export class UserController {
   @ApiExtraModels(UserGetDto)
   @ApiOkResponsePaginated(UserGetResposeDto)
   async getUsers(@Query() userGet: UserGetDto): Promise<PaginatedResponseDto<UserGetResposeDto>> {
-    return { data: await this.userService.getUsers(userGet), totalCount: (await this.userService.getUsers(userGet)).length };
+    return {
+      data: await this.userService.getUsers(userGet),
+      totalCount: (await this.userService.getUsers(userGet)).length
+    };
   }
 
   @Put('updateUser')
   @Roles({ roles: ['admin'] })
-  updateUser(@Param('id') id: string, @Body() userUpdateDto: UserUpdateDto): Promise<User> {
-    return this.userService.updateUser();
+  updateUser(@Param('id') id: number, @Body() userUpdateDto: UserUpdateDto): Promise<User> {
+    return this.userService.updateUser(id, userUpdateDto);
   }
 
   @Post('createUser')
   createUser(@Body() userCreateDto: UserCreateDto): Promise<User> {
-    return this.userService.createUser();
+    return this.userService.createUser(userCreateDto);
   }
 
   @Delete('deleteUser')

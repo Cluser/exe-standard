@@ -17,15 +17,9 @@ async function bootstrap() {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
   });
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-      transformOptions: {
-        enableImplicitConversion: true
-      }
-    })
-  );
-  const port = process.env.PORT || 3000;
+  // do sprawdzenia czy jest to ok z tym transformem
+  app.useGlobalPipes(new ValidationPipe({ transform: true, transformOptions: { enableImplicitConversion: true } }));
+  const port = process.env['PORT'] || 3000;
 
   // Swagger configuration
   const config = new DocumentBuilder()
@@ -33,10 +27,7 @@ async function bootstrap() {
     .setDescription('API Description')
     .setVersion('1.0')
     .addServer(`http://localhost:${port}`)
-    .addBearerAuth(
-      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-      'access-token'
-    )
+    .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' }, 'access-token')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
@@ -45,9 +36,7 @@ async function bootstrap() {
   await app.listen(port);
 
   // Info log
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-  );
+  Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);
 }
 
 bootstrap();
