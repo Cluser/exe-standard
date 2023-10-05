@@ -8,7 +8,8 @@
     "start:server-api": "nx serve server-server-api",
     "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client/shared/data-access/src/lib",
     "clean-node-modules": "npm prune",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "npx nx run-many --target=lint"
   },
   "private": true,
   "dependencies": {

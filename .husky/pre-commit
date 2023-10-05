@@ -3,3 +3,4 @@
 
 npx lint-staged
 npx tsc --noEmit -p ./tsconfig.base.json --pretty
+npx nx run-many --target=lint
