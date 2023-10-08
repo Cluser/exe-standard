@@ -1,9 +1,9 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class PaginatedResponseDto<T> {
   @ApiProperty()
   data: T[];
-  
+
   @ApiProperty()
   totalCount?: number;
 
@@ -12,10 +12,10 @@ export class PaginatedResponseDto<T> {
 
   @ApiProperty()
   limit?: number;
-  
+
   constructor(data: T[], totalCount: number, offset: number, limit: number) {
     this.data = data;
-    this.totalCount = data.length;
+    this.totalCount = totalCount;
     this.offset = offset;
     this.limit = limit;
   }

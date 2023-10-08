@@ -1,7 +1,39 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "ignorePatterns": ["!**/*"],
+  "plugins": ["@nx/eslint-plugin", "@angular-eslint"],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/array-type": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-empty-function": "error",
+    "@angular-eslint/directive-selector": [
+      "error",
+      {
+        "type": "attribute",
+        "prefix": "app",
+        "style": "camelCase"
+      }
+    ],
+    "@angular-eslint/component-selector": [
+      "error",
+      {
+        "type": "element",
+        "prefix": "app",
+        "style": "kebab-case"
+      }
+    ]
+    // "sort-imports": [
+    //   "error",
+    //   {
+    //     "ignoreCase": false,
+    //     "ignoreDeclarationSort": false,
+    //     "ignoreMemberSort": false,
+    //     "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+    //     "allowSeparatedGroups": false
+    //   }
+    // ]
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
