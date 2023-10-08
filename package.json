@@ -12,7 +12,8 @@
     "api-client-sdk": "openapi-generator-cli generate -i http://localhost:3000/api-json -g typescript-angular -o libs/client/shared/data-access/src/lib",
     "clean-node-modules": "npm prune",
     "prepare": "husky install",
-    "lint": "npx nx run-many --target=lint"
+    "lint": "npx nx run-many --target=lint",
+    "test": "npx nx run-many --target=test --coverage"
   },
   "private": true,
   "dependencies": {
