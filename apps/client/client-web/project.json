@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "exe",
   "sourceRoot": "apps/client/client-web/src",
-  "tags": [],
+  "tags": ["scope:client-client-web", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

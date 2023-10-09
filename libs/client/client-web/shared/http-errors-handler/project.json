@@ -3,7 +3,7 @@
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/client-web/shared/http-errors-handler/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-client-web-shared-http-errors-handler", "type:util"],
   "projectType": "library",
   "targets": {
     "test": {

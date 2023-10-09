@@ -71,5 +71,5 @@
       "command": "ts-node ./prisma/seed.ts"
     }
   },
-  "tags": ["prisma-client"]
+  "tags": ["scope:server-shared-prisma-client", "type:data-access"]
 }
