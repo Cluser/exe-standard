@@ -3,7 +3,7 @@
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/client-web/feature/feature-dashboard/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-client-web-feature-feature-dashboard", "type:feature"],
   "projectType": "library",
   "targets": {
     "test": {

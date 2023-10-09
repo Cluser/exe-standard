@@ -3,7 +3,7 @@
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/client-web/shared/auth-keycloak/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-client-web-shared-auth-keycloak", "type:util"],
   "projectType": "library",
   "targets": {
     "test": {

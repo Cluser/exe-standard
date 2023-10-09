@@ -3,7 +3,7 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/shared/styles/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-shared-styles", "type:ui"],
   "projectType": "library",
   "targets": {
     "test": {

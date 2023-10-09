@@ -28,5 +28,5 @@
       }
     }
   },
-  "tags": ["feature-user"]
+  "tags": ["scope:server-server-api-feature-feature-user", "type:feature"]
 }
