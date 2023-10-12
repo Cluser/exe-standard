@@ -13,7 +13,8 @@
     "clean-node-modules": "npm prune",
     "prepare": "husky install",
     "lint": "npx nx run-many --target=lint",
-    "test": "npx nx run-many --target=test --coverage"
+    "test": "npx nx run-many --target=test",
+    "test:coverage": "npx nx run-many --target=test --parallel=false --config=jest.config.ts"
   },
   "private": true,
   "dependencies": {
