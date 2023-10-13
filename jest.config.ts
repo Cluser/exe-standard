@@ -1,8 +1,8 @@
 import { getJestProjects } from '@nx/jest';
-console.log('sssss')
+
 export default {
   projects: getJestProjects(),
-  collectCoverage: false,
+  collectCoverage: true,
   coverageThreshold: {
     global: {
       branches: 80,
@@ -12,6 +12,8 @@ export default {
     },
   },
   coverageReporters: [
-    'json'
+    'text',
+    'json',
+    'html'
   ]
 };
