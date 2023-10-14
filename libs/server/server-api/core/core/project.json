@@ -1,21 +1,21 @@
 {
-  "name": "server-shared-logger-pino",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/server/shared/logger-pino/src",
+  "name": "server-server-api-core-core",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server/server-api/core/core/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/server/shared/logger-pino/**/*.ts"]
+        "lintFilePatterns": ["libs/server/server-api/core/core/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/server/shared/logger-pino/jest.config.ts",
+        "jestConfig": "libs/server/server-api/core/core/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -26,5 +26,5 @@
       }
     }
   },
-  "tags": ["scope:server-shared-logger-pino", "type:util"]
+  "tags": ["scope:server-server-api-core-core", "type:core"]
 }
