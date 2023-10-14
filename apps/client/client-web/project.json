@@ -20,7 +20,12 @@
         "scripts": [],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/client/shared/styles/src"]
-        }
+        },
+        "allowedCommonJsDependencies": [
+          "lodash",
+          "base64-js",
+          "js-sha256"
+        ]
       },
       "configurations": {
         "production": {

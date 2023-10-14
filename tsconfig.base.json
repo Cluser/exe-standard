@@ -46,6 +46,7 @@
       "@exe/client/client-web/shared/session-storage": ["libs/client/client-web/shared/session-storage/src/index.ts"],
       "@exe/client/client-web/shared/shared": ["libs/client/client-web/shared/shared/src/index.ts"],
       "@exe/client/client-web/shared/store": ["libs/client/client-web/shared/store/src/index.ts"],
+      "@exe/client/client-web/shared/transloco": ["libs/client/client-web/shared/transloco/src/index.ts"],
       "@exe/client/shared/components": ["libs/client/shared/components/src/index.ts"],
       "@exe/client/shared/data-access": ["libs/client/shared/data-access/src/index.ts"],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
