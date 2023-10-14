@@ -3,7 +3,7 @@
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/client-web/core/core/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-client-web-core-core", "type:core"],
   "projectType": "library",
   "targets": {
     "test": {
