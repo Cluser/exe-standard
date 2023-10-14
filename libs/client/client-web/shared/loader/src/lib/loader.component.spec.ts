@@ -5,9 +5,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'exe-test-host-component',
-  template: `
-    <exe-loader [isLoading]="isLoading"></exe-loader>
-  `,
+  template: ` <exe-loader [isLoading]="isLoading"></exe-loader> `
 })
 class TestHostComponent {
   isLoading: boolean | null = true;
@@ -20,7 +18,7 @@ describe('LoaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProgressSpinnerModule],
-      declarations: [LoaderComponent, TestHostComponent],
+      declarations: [LoaderComponent, TestHostComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
@@ -35,27 +33,21 @@ describe('LoaderComponent', () => {
   it('should include LoaderComponent in the DOM when isLoading is true', () => {
     testHostComponent.isLoading = true;
     fixture.detectChanges();
-    const loaderComponentElement = fixture.nativeElement.querySelector(
-        'p-progressSpinner'
-    );
+    const loaderComponentElement = fixture.nativeElement.querySelector('p-progressSpinner');
     expect(loaderComponentElement).toBeTruthy();
   });
 
   it('should not include LoaderComponent in the DOM when isLoading is false', () => {
     testHostComponent.isLoading = false;
     fixture.detectChanges();
-    const loaderComponentElement = fixture.nativeElement.querySelector(
-        'p-progressSpinner'
-    );
+    const loaderComponentElement = fixture.nativeElement.querySelector('p-progressSpinner');
     expect(loaderComponentElement).toBeFalsy();
   });
 
   it('should not include LoaderComponent in the DOM when isLoading is null', () => {
     testHostComponent.isLoading = null;
     fixture.detectChanges();
-    const loaderComponentElement = fixture.nativeElement.querySelector(
-        'p-progressSpinner'
-    );
+    const loaderComponentElement = fixture.nativeElement.querySelector('p-progressSpinner');
     expect(loaderComponentElement).toBeFalsy();
   });
 });

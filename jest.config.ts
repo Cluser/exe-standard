@@ -8,12 +8,9 @@ export default {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: -10,
-    },
+      statements: -10
+    }
   },
-  coverageReporters: [
-    'text',
-    'json',
-    'html'
-  ]
+  coverageReporters: ['text', 'json', 'html'],
+  coveragePathIgnorePatterns: ['*.dto.ts']
 };

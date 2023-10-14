@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 import { UserCreateDto, UserGetDto, UserUpdateDto } from './dtos';
 import { User } from '@prisma/client';
 import { PrismaClientModule } from '@exe/server/shared/prisma-client';
-import { AuthKeycloakModule } from '@exe/server/shared/auth-keycloak'
+import { AuthKeycloakModule } from '@exe/server/shared/auth-keycloak';
 
 describe('UserController', () => {
   let userController: UserController;
@@ -14,7 +14,7 @@ describe('UserController', () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [PrismaClientModule, AuthKeycloakModule],
       controllers: [UserController],
-      providers: [UserService],
+      providers: [UserService]
     }).compile();
 
     userController = module.get<UserController>(UserController);
@@ -23,9 +23,9 @@ describe('UserController', () => {
 
   describe('getUsers', () => {
     it('should return a paginated response of users', async () => {
-      const userGetDto: UserGetDto = { id: 1, name: 'John', surname: 'Smith'}; 
+      const userGetDto: UserGetDto = { id: 1, name: 'John', surname: 'Smith' };
 
-      const mockUsers: User[] = [{ id: 1, name: 'John', surname: 'Smith'}];
+      const mockUsers: User[] = [{ id: 1, name: 'John', surname: 'Smith' }];
       jest.spyOn(userService, 'getUsers').mockResolvedValue(mockUsers);
 
       const result = await userController.getUsers(userGetDto);
