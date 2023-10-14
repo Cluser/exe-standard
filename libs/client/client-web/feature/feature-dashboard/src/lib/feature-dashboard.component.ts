@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'exe-feature-dashboard',
   templateUrl: './feature-dashboard.component.html',
-  styleUrls: ['./feature-dashboard.component.scss'],
+  styleUrls: ['./feature-dashboard.component.scss']
 })
 export class FeatureDashboardComponent implements OnInit {
 

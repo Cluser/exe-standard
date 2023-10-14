@@ -6,6 +6,7 @@ import { AuthKeycloakModule } from '@exe/client/client-web/shared/auth-keycloak'
 import { NgrxStoreModule } from '@exe/client/client-web/shared/store';
 import { HttpErrorsHandlerModule } from '@exe/client/client-web/shared/http-errors-handler';
 import { LoaderModule } from '@exe/client/client-web/shared/loader';
+import { TranslocoRootModule } from '@exe/client/client-web/shared/transloco'
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { LoaderModule } from '@exe/client/client-web/shared/loader';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    LoaderModule
+    LoaderModule,
+    TranslocoRootModule
   ],
   exports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { LoaderModule } from '@exe/client/client-web/shared/loader';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    LoaderModule
+    LoaderModule,
+    TranslocoRootModule
   ]
 })
 export class SharedModule {}

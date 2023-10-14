@@ -1,6 +1,7 @@
 <div class="container">
-    <button class="button" (click)="onLogoutClick()">Logout</button>
-
+    <button class="button" (click)="onLogoutClick()">
+        {{ 'featureDashboard.logout' | transloco }}
+    </button>
     <exe-loader [isLoading]="isUsersLoading$ | async">
         <ol>
             <li *ngFor="let user of users$ | async">
