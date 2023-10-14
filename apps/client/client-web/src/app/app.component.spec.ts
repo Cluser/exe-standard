@@ -9,11 +9,8 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AppRoutingModule,
-        SharedModule
-      ],
-      declarations: [AppComponent],
+      imports: [AppRoutingModule, SharedModule],
+      declarations: [AppComponent]
     });
 
     fixture = TestBed.createComponent(AppComponent);

@@ -24,10 +24,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/client/shared/styles/**/*.ts",
-          "libs/client/shared/styles/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/client/shared/styles/**/*.ts", "libs/client/shared/styles/**/*.html"]
       }
     }
   }

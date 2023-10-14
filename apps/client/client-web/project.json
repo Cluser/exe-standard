@@ -15,19 +15,11 @@
         "main": "apps/client/client-web/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/client/client-web/tsconfig.app.json",
-        "assets": [
-          "apps/client/client-web/src/favicon.ico",
-          "apps/client/client-web/src/assets"
-        ],
-        "styles": [
-          "apps/client/client-web/src/styles.scss",
-          "libs/client/shared/styles/src/index.scss"
-        ],
+        "assets": ["apps/client/client-web/src/favicon.ico", "apps/client/client-web/src/assets"],
+        "styles": ["apps/client/client-web/src/styles.scss", "libs/client/shared/styles/src/index.scss"],
         "scripts": [],
         "stylePreprocessorOptions": {
-            "includePaths": [
-              "libs/client/shared/styles/src"
-            ]
+          "includePaths": ["libs/client/shared/styles/src"]
         }
       },
       "configurations": {
@@ -79,10 +71,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/client/client-web/**/*.ts",
-          "apps/client/client-web/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/client/client-web/**/*.ts", "apps/client/client-web/**/*.html"]
       }
     },
     "test": {
