@@ -28,7 +28,7 @@ export class FeatureDashboardComponent implements OnInit {
     this.featureDashboardFacadeService.getLocalStorageData();
   }
 
-  handleMenuItemClick(menuItem: MenuItem): void {
+  onMenuItemClick(menuItem: MenuItem): void {
     switch(menuItem) {
       case 'ITEM_1':
         break;
@@ -37,7 +37,7 @@ export class FeatureDashboardComponent implements OnInit {
     }
   }
 
-  handleTopBarItemClick(item: string): void {
+  onTopBarItemClick(item: string): void {
     switch(item) {
       case 'UserSettings':
         break;

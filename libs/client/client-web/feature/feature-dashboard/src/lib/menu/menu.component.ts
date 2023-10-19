@@ -7,13 +7,13 @@ import { MENU_ITEMS, MenuItems, MenuItem } from './menu.model';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  @Output() onMenuItemClick = new EventEmitter<MenuItem>;
+  @Output() menuItemClick = new EventEmitter<MenuItem>;
 
   readonly MENU_ITEMS: MenuItems = MENU_ITEMS;
   selectedMenu: MenuItem = MENU_ITEMS.ITEM_1;
 
-  menuItemClick(menuItem: MenuItem): void {
+  onMenuItemClick(menuItem: MenuItem): void {
     this.selectedMenu = menuItem;
-    this.onMenuItemClick.emit(menuItem);
+    this.menuItemClick.emit(menuItem);
   }
 }

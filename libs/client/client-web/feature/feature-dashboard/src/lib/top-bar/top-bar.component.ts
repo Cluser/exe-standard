@@ -8,7 +8,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent {
-  @Output() onItemClick = new EventEmitter;
+  @Output() itemClick = new EventEmitter;
 
   readonly breadcrumbs: MenuItem[] = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
   readonly home: MenuItem = { icon: 'pi pi-home', routerLink: '/' };
@@ -19,12 +19,12 @@ export class TopBarComponent {
     { 
       label: 'Moje konto', 
       icon: 'pi pi-fw pi-user',
-      command: () => this.onItemClick.emit(TOP_BAR_ITEMS.USER_SETTINGS) 
+      command: () => this.itemClick.emit(TOP_BAR_ITEMS.USER_SETTINGS) 
     },
     { 
       label: 'Wyloguj', 
       icon: 'pi pi-fw pi-sign-out', 
-      command: () => this.onItemClick.emit(TOP_BAR_ITEMS.LOGOUT) 
+      command: () => this.itemClick.emit(TOP_BAR_ITEMS.LOGOUT) 
     }
   ];
 }
