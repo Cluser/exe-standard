@@ -1,0 +1,19 @@
+<div class="menu">
+    <div class="menu__primary">
+        <i class="menu__icon pi pi-server" pTooltip="Ekran 1" (click)="onMenuItemClick(MENU_ITEMS.ITEM_1)"></i>
+        <i class="menu__icon pi pi-send" pTooltip="Ekran 2" (click)="onMenuItemClick(MENU_ITEMS.ITEM_2)"></i>
+        <i class="menu__icon pi pi-wrench" pTooltip="Ekran 3" (click)="onMenuItemClick(MENU_ITEMS.ITEM_2)"></i>
+    </div>
+    
+    <div class="menu__secondary" [ngSwitch]="selectedMenu">
+        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_1">
+            ITEM_1
+        </ng-container>
+        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_2">
+            ITEM_2
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            Default
+        </ng-container>
+    </div>
+</div>

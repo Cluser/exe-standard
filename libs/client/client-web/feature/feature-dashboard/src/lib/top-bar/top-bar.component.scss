@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "breadcrumbs menu"
+    ;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+}
+
+.breadcrumbs {
+    grid-area: breadcrumbs;
+}
+
+.menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-right: 10px;
+
+    &__icon {
+        cursor: pointer;
+    }
+}
