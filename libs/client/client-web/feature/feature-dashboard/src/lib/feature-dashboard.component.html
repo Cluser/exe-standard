@@ -1,13 +1,16 @@
 <div class="container">
-    <button class="button" (click)="onLogoutClick()">
-        {{ 'featureDashboard.logout' | transloco }}
-    </button>
-    <exe-loader [isLoading]="isUsersLoading$ | async">
-        <ol>
-            <li *ngFor="let user of users$ | async">
-                {{ user.name }} {{ user.surname }}
-            </li>
-        </ol>
-    </exe-loader>
+    <div class="menu">
+        <exe-menu (onMenuItemClick)="handleMenuItemClick($event)"></exe-menu>
+    </div>
+    <div class="top-bar">
+        <exe-top-bar (onItemClick)="handleTopBarItemClick($event)"></exe-top-bar>
+    </div>
+    <div class="content">
+
+    </div>
 </div>
+
+
+
+
 

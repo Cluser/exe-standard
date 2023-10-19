@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
 import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { Observable } from 'rxjs';
+import { MenuItem } from './menu/menu.model';
 
 @Component({
   selector: 'exe-feature-dashboard',
@@ -27,7 +28,22 @@ export class FeatureDashboardComponent implements OnInit {
     this.featureDashboardFacadeService.getLocalStorageData();
   }
 
-  onLogoutClick(): void {
-    this.featureDashboardFacadeService.logout();
+  handleMenuItemClick(menuItem: MenuItem): void {
+    switch(menuItem) {
+      case 'ITEM_1':
+        break;
+      case 'ITEM_2':
+        break;
+    }
+  }
+
+  handleTopBarItemClick(item: string): void {
+    switch(item) {
+      case 'UserSettings':
+        break;
+      case 'LOGOUT':
+        this.featureDashboardFacadeService.logout();
+        break;
+    }
   }
 }
