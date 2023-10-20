@@ -4,7 +4,7 @@ import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { KeycloakService } from 'keycloak-angular';
 import { LocalStorageService, LOCAL_STORAGE } from '@exe/client/client-web/shared/local-storage';
 import { Observable } from 'rxjs';
-import { NavigationService } from 'libs/client/client-web/shared/navigation/src/lib/navigation.service';
+import { NavigationService } from '@exe/client/client-web/shared/navigation';
 
 export const ROUTES = {
   dashboard: {
