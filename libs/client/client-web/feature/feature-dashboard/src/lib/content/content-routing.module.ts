@@ -2,12 +2,12 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatureDashboardComponent } from './feature-dashboard.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: FeatureDashboardComponent
+    path: 'configuration', 
+    redirectTo: 'configuration', 
+    pathMatch: 'full'
   }
 ];
 
@@ -15,4 +15,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FeatureDashboardRoutingModule {}
+export class ContentRoutingModule {}

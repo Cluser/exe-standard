@@ -4,7 +4,12 @@ import { Route, RouterModule } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
-    path: '',
+    path: '', 
+    redirectTo: 'dashboard', 
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
     loadChildren: () => import('@exe/client/client-web/feature/feature-dashboard').then((m) => m.FeatureDashboardModule)
   },
   {

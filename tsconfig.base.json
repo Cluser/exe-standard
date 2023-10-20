@@ -45,6 +45,7 @@
       ],
       "@exe/client/client-web/shared/loader": ["libs/client/client-web/shared/loader/src/index.ts"],
       "@exe/client/client-web/shared/local-storage": ["libs/client/client-web/shared/local-storage/src/index.ts"],
+      "@exe/client/client-web/shared/navigation": ["libs/client/client-web/shared/navigation/src/index.ts"],
       "@exe/client/client-web/shared/not-found": ["libs/client/client-web/shared/not-found/src/index.ts"],
       "@exe/client/client-web/shared/session-storage": ["libs/client/client-web/shared/session-storage/src/index.ts"],
       "@exe/client/client-web/shared/shared": ["libs/client/client-web/shared/shared/src/index.ts"],

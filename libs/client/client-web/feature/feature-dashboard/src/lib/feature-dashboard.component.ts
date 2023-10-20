@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
 import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { Observable } from 'rxjs';
-import { MenuItem } from './menu/menu.model';
+import { MENU_ITEMS, MenuItem } from './menu/menu.model';
+import { TOP_BAR_ITEMS } from './top-bar/top-bar.model';
 
 @Component({
   selector: 'exe-feature-dashboard',
@@ -21,6 +22,10 @@ export class FeatureDashboardComponent implements OnInit {
     return this.featureDashboardFacadeService.isUsersLoading$();
   }
 
+  get breadcrumbs$(): Observable<string[]> {
+    return this.featureDashboardFacadeService.getBreadcrumbs$();
+  }
+
   ngOnInit(): void {
     this.featureDashboardFacadeService.getToken();
     this.featureDashboardFacadeService.fetchUsers$();
@@ -30,18 +35,20 @@ export class FeatureDashboardComponent implements OnInit {
 
   onMenuItemClick(menuItem: MenuItem): void {
     switch(menuItem) {
-      case 'ITEM_1':
+      case MENU_ITEMS.ITEM_1: 
+        this.featureDashboardFacadeService.navigateToDashboard();
         break;
-      case 'ITEM_2':
+      case MENU_ITEMS.ITEM_2:
+        this.featureDashboardFacadeService.navigateToConfiguration();
         break;
     }
   }
 
   onTopBarItemClick(item: string): void {
     switch(item) {
-      case 'UserSettings':
+      case TOP_BAR_ITEMS.USER_SETTINGS:
         break;
-      case 'LOGOUT':
+      case TOP_BAR_ITEMS.LOGOUT:
         this.featureDashboardFacadeService.logout();
         break;
     }

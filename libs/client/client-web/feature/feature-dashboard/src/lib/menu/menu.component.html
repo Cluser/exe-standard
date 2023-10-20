@@ -6,14 +6,8 @@
     </div>
     
     <div class="menu__secondary" [ngSwitch]="selectedMenu">
-        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_1">
-            ITEM_1
-        </ng-container>
-        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_2">
-            ITEM_2
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-            Default
-        </ng-container>
+        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_1"></ng-container>
+        <ng-container *ngSwitchCase="MENU_ITEMS.ITEM_2"></ng-container>
+        <ng-container *ngSwitchDefault></ng-container>
     </div>
 </div>
