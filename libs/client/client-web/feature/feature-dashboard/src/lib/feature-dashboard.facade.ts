@@ -4,6 +4,16 @@ import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { KeycloakService } from 'keycloak-angular';
 import { LocalStorageService, LOCAL_STORAGE } from '@exe/client/client-web/shared/local-storage';
 import { Observable } from 'rxjs';
+import { NavigationService } from '@exe/client/client-web/shared/navigation';
+
+export const ROUTES = {
+  dashboard: {
+    link: 'dashboard',
+    statistics: {
+      link: 'statistics',
+    }
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +22,8 @@ export class FeatureDashboardFacadeService {
   constructor(
     private keycloakService: KeycloakService,
     private localStorageService: LocalStorageService,
-    private usersFacadeService: UsersFacadeService
+    private usersFacadeService: UsersFacadeService,
+    private navigationService: NavigationService
   ) {}
 
   getToken(): void {
@@ -48,5 +59,17 @@ export class FeatureDashboardFacadeService {
 
   getLocalStorageData(): void {
     return console.log(this.localStorageService.getItem(LOCAL_STORAGE.PARAMETER_01));
+  }
+
+  navigateToDashboard(): void {
+    return this.navigationService.navigateToDashboard();
+  }
+
+  navigateToConfiguration(): void {
+    return this.navigationService.navigateToConfiguration();
+  }
+
+  getBreadcrumbs$(): Observable<string[]> {
+    return this.navigationService.getBreadcrumbs$()
   }
 }

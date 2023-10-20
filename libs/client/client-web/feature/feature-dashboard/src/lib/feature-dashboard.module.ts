@@ -6,6 +6,7 @@ import { LoaderModule } from '@exe/client/client-web/shared/loader'
 import { TranslocoModule } from '@ngneat/transloco';
 import { MenuModule } from './menu/menu.module'
 import { TopBarModule } from './top-bar/top-bar.module';
+import { ContentModule } from './content/content.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { TopBarModule } from './top-bar/top-bar.module';
     LoaderModule,
     TranslocoModule,
     MenuModule,
-    TopBarModule
+    TopBarModule,
+    ContentModule
   ],
   declarations: [FeatureDashboardComponent],
 })
