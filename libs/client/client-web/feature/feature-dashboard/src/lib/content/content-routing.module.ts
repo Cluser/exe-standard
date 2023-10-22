@@ -2,12 +2,12 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FeatureDashboardComponent } from '../feature-dashboard.component';
 
 export const routes: Routes = [
   {
     path: 'configuration', 
-    redirectTo: 'configuration', 
-    pathMatch: 'full'
+    component: FeatureDashboardComponent
   }
 ];
 

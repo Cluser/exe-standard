@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
 import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { Observable } from 'rxjs';
 import { MENU_ITEMS, MenuItem } from './menu/menu.model';
 import { TOP_BAR_ITEMS } from './top-bar/top-bar.model';
+import { MenuItem as Menu} from 'primeng/api';
+
 
 @Component({
   selector: 'exe-feature-dashboard',
   templateUrl: './feature-dashboard.component.html',
-  styleUrls: ['./feature-dashboard.component.scss']
+  styleUrls: ['./feature-dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeatureDashboardComponent implements OnInit {
 
@@ -22,8 +25,8 @@ export class FeatureDashboardComponent implements OnInit {
     return this.featureDashboardFacadeService.isUsersLoading$();
   }
 
-  get breadcrumbs$(): Observable<string[]> {
-    return this.featureDashboardFacadeService.getBreadcrumbs$();
+  get breadcrumbs(): Menu[] {
+    return this.featureDashboardFacadeService.getBreadcrumbs();
   }
 
   ngOnInit(): void {

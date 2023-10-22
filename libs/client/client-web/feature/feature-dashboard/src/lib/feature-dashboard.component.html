@@ -3,14 +3,12 @@
         <exe-menu (menuItemClick)="onMenuItemClick($event)"></exe-menu>
     </div>
     <div class="top-bar">
-        <exe-top-bar (itemClick)="onTopBarItemClick($event)"></exe-top-bar>
+        <exe-top-bar [breadcrumbs]="breadcrumbs" (itemClick)="onTopBarItemClick($event)"></exe-top-bar>
     </div>
     <div class="content">
         <exe-content></exe-content>
     </div>
 </div>
-
-
 
 
 

@@ -5,15 +5,7 @@ import { KeycloakService } from 'keycloak-angular';
 import { LocalStorageService, LOCAL_STORAGE } from '@exe/client/client-web/shared/local-storage';
 import { Observable } from 'rxjs';
 import { NavigationService } from '@exe/client/client-web/shared/navigation';
-
-export const ROUTES = {
-  dashboard: {
-    link: 'dashboard',
-    statistics: {
-      link: 'statistics',
-    }
-  }
-}
+import { MenuItem } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +63,15 @@ export class FeatureDashboardFacadeService {
 
   getBreadcrumbs$(): Observable<string[]> {
     return this.navigationService.getBreadcrumbs$()
+  }
+
+  getBreadcrumbs(): MenuItem[] {
+    const breadcrumbs: string[] = this.navigationService.getBreadcrumbs();
+    return breadcrumbs.map((breadcrumb, index) => {
+      return { 
+        label: breadcrumb, 
+        url: breadcrumbs.slice(0, index + 1).join('/')
+      };
+    });
   }
 }
