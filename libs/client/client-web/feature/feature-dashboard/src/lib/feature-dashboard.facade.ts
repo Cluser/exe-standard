@@ -66,8 +66,12 @@ export class FeatureDashboardFacadeService {
   }
 
   getBreadcrumbs(): MenuItem[] {
-    return this.navigationService.getBreadcrumbs().map(breadcrumb => ({
-      label: breadcrumb
-    }));
+    const breadcrumbs: string[] = this.navigationService.getBreadcrumbs();
+    return breadcrumbs.map((breadcrumb, index) => {
+      return { 
+        label: breadcrumb, 
+        url: breadcrumbs.slice(0, index + 1).join('/')
+      };
+    });
   }
 }

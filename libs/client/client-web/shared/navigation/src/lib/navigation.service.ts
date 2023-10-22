@@ -23,7 +23,7 @@ export class NavigationService {
 
     // Gets current breadcrumbs as string array
     getBreadcrumbs(): string[] {
-        return this.getCurrentUrl().split('/').filter(segment => segment.length)
+        return this.getCurrentUrl().split('/').filter(segment => segment.length);
     }
 
     // Gets current breadcrumbs as observable string array
