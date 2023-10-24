@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="content">
+        <div class="content__row">
+            Zmień swoje dane
+        </div>
+        <div class="content__row">
+            <span class="p-float-label">
+                <input pInputText id="name"/>
+                <label htmlFor="name">Imię</label>
+            </span>
+            <span class="p-float-label">
+                <input pInputText id="surname"/>
+                <label htmlFor="surname">Nazwisko</label>
+            </span>
+        </div>
+    </div> 
+    <div class="footer">
+        <div class="footer__buttons">
+            <button pButton type="button" label="Anuluj" icon="pi pi-times" class="p-button-primary" size="small" (click)="close()"></button>
+            <button pButton type="button" label="Zapisz" icon="pi pi-check" class="p-button-primary" size="large" (click)="saveProfile()"></button>
+        </div>
+    </div>
+</div>
