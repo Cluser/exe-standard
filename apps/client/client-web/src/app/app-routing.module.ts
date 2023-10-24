@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 

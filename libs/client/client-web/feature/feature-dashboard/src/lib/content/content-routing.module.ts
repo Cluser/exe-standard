@@ -3,11 +3,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeatureDashboardComponent } from '../feature-dashboard.component';
+import { RoleGuard } from '@exe/client/client-web/shared/guards';
 
 export const routes: Routes = [
   {
     path: 'configuration', 
-    component: FeatureDashboardComponent
+    component: FeatureDashboardComponent,
+    canActivate: [RoleGuard],
+    data: {
+      requiredRoles: ['adminn']
+    }
   }
 ];
 
