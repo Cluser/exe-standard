@@ -6,7 +6,6 @@ import { MENU_ITEMS, MenuItem } from './menu/menu.model';
 import { TOP_BAR_ITEMS } from './top-bar/top-bar.model';
 import { MenuItem as Menu} from 'primeng/api';
 
-
 @Component({
   selector: 'exe-feature-dashboard',
   templateUrl: './feature-dashboard.component.html',
@@ -15,8 +14,10 @@ import { MenuItem as Menu} from 'primeng/api';
 })
 export class FeatureDashboardComponent implements OnInit {
 
-  constructor(private featureDashboardFacadeService: FeatureDashboardFacadeService) {}
-
+  constructor(
+    private featureDashboardFacadeService: FeatureDashboardFacadeService
+  ) {}
+  
   get users$(): Observable<UserGetResposeDto[]> {
     return this.featureDashboardFacadeService.getUsers$();
   }
@@ -34,6 +35,8 @@ export class FeatureDashboardComponent implements OnInit {
     this.featureDashboardFacadeService.fetchUsers$();
     this.featureDashboardFacadeService.setLocalStorageData();
     this.featureDashboardFacadeService.getLocalStorageData();
+
+
   }
 
   onMenuItemClick(menuItem: MenuItem): void {
@@ -50,6 +53,7 @@ export class FeatureDashboardComponent implements OnInit {
   onTopBarItemClick(item: string): void {
     switch(item) {
       case TOP_BAR_ITEMS.USER_SETTINGS:
+        this.featureDashboardFacadeService.onUsersSettingsClick();
         break;
       case TOP_BAR_ITEMS.LOGOUT:
         this.featureDashboardFacadeService.logout();

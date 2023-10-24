@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 24px;
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;;
+    width: 100%;
+
+    &__buttons {    
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+}

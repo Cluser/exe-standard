@@ -6,6 +6,8 @@ import { LocalStorageService, LOCAL_STORAGE } from '@exe/client/client-web/share
 import { Observable } from 'rxjs';
 import { NavigationService } from '@exe/client/client-web/shared/navigation';
 import { MenuItem } from 'primeng/api';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { UserProfileModalComponent } from '@exe/client/client-web/shared/modal';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,11 @@ export class FeatureDashboardFacadeService {
     private keycloakService: KeycloakService,
     private localStorageService: LocalStorageService,
     private usersFacadeService: UsersFacadeService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,  
+    private dialogService: DialogService 
   ) {}
+
+  ref: DynamicDialogRef | undefined;
 
   getToken(): void {
     this.keycloakService.getToken().then((token) => {
@@ -73,5 +78,23 @@ export class FeatureDashboardFacadeService {
         url: breadcrumbs.slice(0, index + 1).join('/')
       };
     });
+  }
+
+  onUsersSettingsClick(): void {
+    this.dialogService.open(UserProfileModalComponent, {
+      header: 'Edycja profilu użytkownika',
+      width: '600px',
+      data: {
+        user: {
+          name: 'John',
+          surname: 'Doe'
+        }
+      },
+      draggable: true,
+    }).onClose.subscribe(
+      (result) => {
+        console.log(result)
+      }
+    );
   }
 }
