@@ -3,7 +3,7 @@
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/client-web/shared/modal/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-client-web-shared-modal", "type:ui"],
   "projectType": "library",
   "targets": {
     "test": {

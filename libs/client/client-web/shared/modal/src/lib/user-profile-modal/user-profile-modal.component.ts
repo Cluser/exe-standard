@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalAbstractComponent } from '../modal-abstract.component';
 
 @Component({
@@ -6,10 +6,8 @@ import { ModalAbstractComponent } from '../modal-abstract.component';
     templateUrl: './user-profile-modal.component.html',
     styleUrls: ['./user-profile-modal.component.scss', '../modal-abstract.component.scss']
 })
-export class UserProfileModalComponent extends ModalAbstractComponent implements OnInit {
+export class UserProfileModalComponent extends ModalAbstractComponent {
     @Input() user: { name: string; surname: string } = { name: '', surname: '' };
-
-    ngOnInit(): void {}
 
     saveProfile(): void {
         this.save(this.user);

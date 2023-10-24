@@ -9,7 +9,8 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 export class ModalAbstractComponent {
 
     constructor(public ref: DynamicDialogRef) {}
-
+    
+    // tslint:disable-next-line: no-any
     save(value: any) {
         this.ref.close(value);
     }
