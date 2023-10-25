@@ -1,40 +1,54 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { UserGetResposeDto } from '@exe/client/shared/data-access';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ApiResponseState, initialApiResponseState } from '../store.model';
 import * as fromUsers from './index';
 
 export interface UsersState {
-  users: UserGetResposeDto[];
-  isLoading: boolean;
-  errors: HttpErrorResponse[];
+  users: ApiResponseState<UserGetResposeDto[]>;
 }
 
 export const initialUsersState: UsersState = {
-  users: [],
-  isLoading: false,
-  errors: []
+  users: initialApiResponseState
 };
 
 const reducer = createReducer(
   initialUsersState,
+  on(fromUsers.clearUsers, (state) => {
+    return {
+      ...state,
+      users: initialUsersState.users
+    };
+  }),
   on(fromUsers.fetchUsers, (state) => {
     return {
       ...state,
-      isLoading: true
+      users: {
+        ...state.users,
+        isLoading: true,
+        isLoaded: false
+      }
     };
   }),
   on(fromUsers.fetchUsersSuccess, (state, { payload }) => {
     return {
       ...state,
-      isLoading: false,
-      users: [...state.users, ...payload]
+      users: {
+        ...state.users,
+        isLoading: false,
+        isLoaded: true,
+        data: payload
+      }
     };
   }),
   on(fromUsers.fetchUsersFailure, (state, { payload }) => {
     return {
       ...state,
-      isLoading: false,
-      errors: [...state.errors, payload]
+      users: {
+        ...state.users,
+        isLoading: false,
+        isLoaded: false,
+        errors: [...state.users.errors, payload]
+      }
     };
   })
 );

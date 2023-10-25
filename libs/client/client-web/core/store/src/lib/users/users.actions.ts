@@ -4,9 +4,7 @@ import { createAction, props } from '@ngrx/store';
 
 const prefix = '[Users]';
 
+export const clearUsers = createAction(`${prefix} Clear users`);
 export const fetchUsers = createAction(`${prefix} Fetch users`);
-export const fetchUsersSuccess = createAction(
-  `${prefix} Fetch users success`,
-  props<{ payload: UserGetResposeDto[] }>()
-);
+export const fetchUsersSuccess = createAction(`${prefix} Fetch users success`, props<{ payload: UserGetResposeDto[] }>());
 export const fetchUsersFailure = createAction(`${prefix} Fetch users failure`, props<{ payload: HttpErrorResponse }>());

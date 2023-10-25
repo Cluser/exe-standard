@@ -32,11 +32,8 @@ export class FeatureDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.featureDashboardFacadeService.getToken();
-    this.featureDashboardFacadeService.fetchUsers$();
     this.featureDashboardFacadeService.setLocalStorageData();
     this.featureDashboardFacadeService.getLocalStorageData();
-
-
   }
 
   onMenuItemClick(menuItem: MenuItem): void {
