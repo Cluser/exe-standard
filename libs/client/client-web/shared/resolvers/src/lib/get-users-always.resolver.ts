@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { UsersFacadeService } from '@exe/client/client-web/core/store';
 
 @Injectable({ providedIn: 'root' })
-export class GetUsersAlwaysResolver implements Resolve<void> {
+export class GetUsersAlwaysResolver implements Resolve<boolean> {
   constructor(private usersFacadeService: UsersFacadeService) {}
 
-  resolve(): Observable<any> {
+  resolve(): Observable<boolean> {
     this.usersFacadeService.clearUsers();
     this.usersFacadeService.fetchUsers();
-    return this.usersFacadeService.getUsers$();
+    return this.usersFacadeService.isUsersLoaded$();
   }
 }
+
