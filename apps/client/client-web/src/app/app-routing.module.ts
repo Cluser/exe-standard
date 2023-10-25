@@ -2,16 +2,21 @@
 
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { URL_TREE } from '@exe/client/client-web/shared/navigation';
 
 export const appRoutes: Route[] = [
   {
     path: '', 
-    redirectTo: 'dashboard', 
+    redirectTo: URL_TREE.DASHBOARD.URL, 
     pathMatch: 'full'
   },
   {
-    path: 'dashboard',
+    path: URL_TREE.DASHBOARD.URL,
     loadChildren: () => import('@exe/client/client-web/feature/feature-dashboard').then((m) => m.FeatureDashboardModule)
+  },
+  {
+    path: URL_TREE.NOT_AUTHORIZED.URL,
+    loadChildren: () => import('@exe/client/client-web/shared/not-authorized').then((m) => m.NotAuthorizedModule)
   },
   {
     path: '**',

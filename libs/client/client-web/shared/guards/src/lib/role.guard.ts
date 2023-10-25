@@ -13,6 +13,6 @@ export class RoleGuard {
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const requiredRoles: string[] = route.data['requiredRoles'] as string[];
       const isUserWithAllRequiredRoles: boolean = requiredRoles.every(requiredRole => this.keycloakService.isUserInRole(requiredRole))
-      return isUserWithAllRequiredRoles ? true : this.router.navigate([URL_TREE.NOT_FOUND.URL]);
+      return isUserWithAllRequiredRoles ? true : this.router.navigate([URL_TREE.NOT_AUTHORIZED.URL]);
   }
 }

@@ -7,5 +7,8 @@ export const URL_TREE = {
     },
     NOT_FOUND: {
         URL: 'not-found'
+    },
+    NOT_AUTHORIZED: {
+        URL: 'not-authorized'
     }
 }
