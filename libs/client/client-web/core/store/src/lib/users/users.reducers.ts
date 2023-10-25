@@ -6,27 +6,37 @@ import * as fromUsers from './index';
 export interface UsersState {
   users: UserGetResposeDto[];
   isLoading: boolean;
+  isLoaded: boolean;
   errors: HttpErrorResponse[];
 }
 
 export const initialUsersState: UsersState = {
   users: [],
   isLoading: false,
+  isLoaded: false,
   errors: []
 };
 
 const reducer = createReducer(
   initialUsersState,
+  on(fromUsers.clearUsers, (state) => {
+    return {
+      ...state,
+      users: initialUsersState.users
+    };
+  }),
   on(fromUsers.fetchUsers, (state) => {
     return {
       ...state,
-      isLoading: true
+      isLoading: true,
+      isLoaded: false
     };
   }),
   on(fromUsers.fetchUsersSuccess, (state, { payload }) => {
     return {
       ...state,
       isLoading: false,
+      isLoaded: true,
       users: [...state.users, ...payload]
     };
   }),
@@ -34,6 +44,7 @@ const reducer = createReducer(
     return {
       ...state,
       isLoading: false,
+      isLoaded: false,
       errors: [...state.errors, payload]
     };
   })
