@@ -46,15 +46,15 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:server-server-api",
-                "onlyDependOnLibsWithTags": ["scope:server-server-api", "type:feature", "type:core", "type:shared"]
+                "onlyDependOnLibsWithTags": ["scope:server-server-api", "type:feature", "type:core", "type:shared", "type:util"]
               },
               {
                 "sourceTag": "scope:client-client-web",
-                "onlyDependOnLibsWithTags": ["scope:client-client-web", "type:feature", "type:core", "type:shared", "type:ui"]
+                "onlyDependOnLibsWithTags": ["scope:client-client-web", "type:feature", "type:core", "type:shared", "type:ui", "type:util"]
               },
               {
                 "sourceTag": "scope:client-client-mobile",
-                "onlyDependOnLibsWithTags": ["scope:client-client-mobile", "type:feature", "type:core", "type:shared"]
+                "onlyDependOnLibsWithTags": ["scope:client-client-mobile", "type:feature", "type:core", "type:shared", "type:util"]
               },
               {
                 "sourceTag": "type:feature",
