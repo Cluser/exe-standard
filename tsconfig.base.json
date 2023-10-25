@@ -59,6 +59,7 @@
       "@exe/server/server-api/core/core": ["libs/server/server-api/core/core/src/index.ts"],
       "@exe/server/server-api/core/logger-pino": ["libs/server/server-api/core/logger-pino/src/index.ts"],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
+      "@exe/server/server-api/shared/socket-io": ["libs/server/server-api/shared/socket-io/src/index.ts"],
       "@exe/server/shared/pagination": ["libs/server/shared/pagination/src/index.ts"],
       "@exe/server/shared/prisma-client": ["libs/server/shared/prisma-client/src/index.ts"]
     }
