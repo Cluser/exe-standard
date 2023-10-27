@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
 import { MENU_ITEMS, MenuItem } from './menu/menu.model';
 import { TOP_BAR_ITEMS } from './top-bar/top-bar.model';
@@ -10,7 +10,7 @@ import { MenuItem as Menu} from 'primeng/api';
   styleUrls: ['./feature-dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeatureDashboardComponent implements OnInit {
+export class FeatureDashboardComponent {
 
   constructor(
     private featureDashboardFacadeService: FeatureDashboardFacadeService
@@ -19,8 +19,6 @@ export class FeatureDashboardComponent implements OnInit {
   get breadcrumbs(): Menu[] {
     return this.featureDashboardFacadeService.getBreadcrumbs();
   }
-
-  ngOnInit(): void {}
 
   onMenuItemClick(menuItem: MenuItem): void {
     switch(menuItem) {
