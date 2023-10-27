@@ -6,6 +6,7 @@ import { AuthKeycloakModule } from '@exe/client/client-web/core/auth-keycloak';
 import { NgrxStoreModule } from '@exe/client/client-web/core/store';
 import { HttpErrorsHandlerModule } from '@exe/client/client-web/core/http-errors-handler';
 import { TranslocoRootModule } from '@exe/client/client-web/core/transloco';
+import { SocketIOModule } from '@exe/client/shared/socket-io';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslocoRootModule } from '@exe/client/client-web/core/transloco';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    SocketIOModule
   ],
   exports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { TranslocoRootModule } from '@exe/client/client-web/core/transloco';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    SocketIOModule
   ]
 })
 export class CoreModule {}

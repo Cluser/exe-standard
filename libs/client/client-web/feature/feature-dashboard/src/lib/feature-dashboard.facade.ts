@@ -8,6 +8,7 @@ import { NavigationService } from '@exe/client/client-web/shared/navigation';
 import { MenuItem } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { UserProfileModalComponent } from '@exe/client/client-web/shared/modal';
+import { SocketIOService } from '@exe/client/shared/socket-io';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class FeatureDashboardFacadeService {
     private localStorageService: LocalStorageService,
     private usersFacadeService: UsersFacadeService,
     private navigationService: NavigationService,  
-    private dialogService: DialogService 
+    private dialogService: DialogService,
+    private socketIOService: SocketIOService
   ) {}
 
   ref: DynamicDialogRef | undefined;
@@ -63,6 +65,9 @@ export class FeatureDashboardFacadeService {
   }
 
   navigateToConfiguration(): void {
+    // this.socketIOService.connect();
+    this.socketIOService.emit('IDENTITY', 'test')
+    // this.socketIOService.disconnect();
     return this.navigationService.navigateToConfiguration();
   }
 
