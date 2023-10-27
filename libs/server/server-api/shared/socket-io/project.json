@@ -26,5 +26,5 @@
       }
     }
   },
-  "tags": ["scope:server-server-api-shared-socket-io", "type:data-access"]
+  "tags": ["scope:server-server-api-shared-socket-io", "type:util"]
 }

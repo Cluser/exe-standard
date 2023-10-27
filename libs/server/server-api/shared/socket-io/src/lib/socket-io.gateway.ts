@@ -12,6 +12,7 @@ import { SOCKET_IO_MESSAGES } from './socket-io.model';
 })
 export class SocketIOGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
   @WebSocketServer()
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   private server: Server = new Server();
 

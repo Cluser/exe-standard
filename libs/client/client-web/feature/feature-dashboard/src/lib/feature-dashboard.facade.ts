@@ -68,8 +68,6 @@ export class FeatureDashboardFacadeService {
     // this.socketIOService.connect();
     this.socketIOService.emit('IDENTITY', 'test')
     // this.socketIOService.disconnect();
-
-    this.socketIOService.on('IDENTITY', (data: any) => { console.log(data)})
     return this.navigationService.navigateToConfiguration();
   }
 
