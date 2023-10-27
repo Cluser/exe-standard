@@ -1,3 +1,4 @@
+import { SocketIOModule } from './../../../../../shared/socket-io/src/lib/socket-io.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +16,8 @@ import { TranslocoRootModule } from '@exe/client/client-web/core/transloco';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    SocketIOModule
   ],
   exports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { TranslocoRootModule } from '@exe/client/client-web/core/transloco';
     AuthKeycloakModule,
     NgrxStoreModule,
     HttpErrorsHandlerModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    SocketIOModule
   ]
 })
 export class CoreModule {}

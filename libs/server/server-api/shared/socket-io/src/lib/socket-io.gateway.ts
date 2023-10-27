@@ -1,31 +1,36 @@
-import {
-    MessageBody,
-    SubscribeMessage,
-    WebSocketGateway,
-    WebSocketServer,
-    WsResponse,
-  } from '@nestjs/websockets';
-  import { from, Observable } from 'rxjs';
-  import { map } from 'rxjs/operators';
-  import { Server } from 'socket.io';
-  
-  @WebSocketGateway({
-    cors: {
-      origin: '*',
-    },
-  })
-  export class SocketIoGateway {
-    @WebSocketServer()
-    server: Server = new Server();
-  
-    @SubscribeMessage('events')
-    findAll(@MessageBody() data: string): Observable<WsResponse<number>> {
-      console.log(data)
-      return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
-    }
-  
-    @SubscribeMessage('identity')
-    async identity(@MessageBody() data: number): Promise<number> {
-      return data;
-    }
+import { WebSocketGateway, OnGatewayConnection, WebSocketServer, OnGatewayDisconnect, OnGatewayInit } from '@nestjs/websockets';
+import { SocketIOService } from './socket-io.service';
+import { Server, Socket } from 'socket.io';
+import { SubscribeMessage } from '@nestjs/websockets';
+import { Observable } from 'rxjs';
+import { SOCKET_IO_MESSAGES } from './socket-io.model';
+
+@WebSocketGateway({
+  cors: {
+    origin: '*',
+  },
+})
+export class SocketIOGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
+  @WebSocketServer()
+  // @ts-ignore
+  private server: Server = new Server();
+
+  constructor(private readonly socketIOService: SocketIOService) {}
+
+  afterInit(socket: Socket): Observable<void> {
+    return this.socketIOService.handleAfterInit(socket);
   }
+
+  handleConnection(socket: Socket): Observable<void> {
+    return this.socketIOService.handleConnection(socket);
+  }
+
+  handleDisconnect(socket: Socket): Observable<void> {
+    return this.socketIOService.handleDisconnect(socket);
+  }
+
+  @SubscribeMessage(SOCKET_IO_MESSAGES.IDENTITY)
+  identity(socket: Socket, data: string): Observable<string> {
+    return this.socketIOService.handleIdentity(socket, data);
+  }
+}
