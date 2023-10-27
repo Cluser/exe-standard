@@ -3,7 +3,7 @@ import { SocketIOService } from './socket-io.service';
 import { Server, Socket } from 'socket.io';
 import { SubscribeMessage } from '@nestjs/websockets';
 import { Observable } from 'rxjs';
-import { SOCKET_IO_MESSAGES } from './socket-io.model';
+import { SOCKET_IO_MESSAGES, SocketIOMessage } from './socket-io.model';
 
 @WebSocketGateway({
   cors: {
@@ -18,20 +18,20 @@ export class SocketIOGateway implements OnGatewayConnection, OnGatewayDisconnect
 
   constructor(private readonly socketIOService: SocketIOService) {}
 
-  afterInit(socket: Socket): Observable<void> {
+  afterInit(socket: Socket): Observable<SocketIOMessage<null>> {
     return this.socketIOService.handleAfterInit(socket);
   }
 
-  handleConnection(socket: Socket): Observable<void> {
+  handleConnection(socket: Socket): Observable<SocketIOMessage<null>> {
     return this.socketIOService.handleConnection(socket);
   }
 
-  handleDisconnect(socket: Socket): Observable<void> {
+  handleDisconnect(socket: Socket): Observable<SocketIOMessage<null>> {
     return this.socketIOService.handleDisconnect(socket);
   }
 
   @SubscribeMessage(SOCKET_IO_MESSAGES.IDENTITY)
-  identity(socket: Socket, data: string): Observable<string> {
+  handleIdentity(socket: Socket, data: string): Observable<SocketIOMessage<string>> {
     return this.socketIOService.handleIdentity(socket, data);
   }
 }
