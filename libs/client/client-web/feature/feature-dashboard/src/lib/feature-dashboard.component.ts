@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FeatureDashboardFacadeService } from './feature-dashboard.facade';
-import { UserGetResposeDto } from '@exe/client/shared/data-access';
-import { Observable } from 'rxjs';
 import { MENU_ITEMS, MenuItem } from './menu/menu.model';
 import { TOP_BAR_ITEMS } from './top-bar/top-bar.model';
 import { MenuItem as Menu} from 'primeng/api';
@@ -18,23 +16,11 @@ export class FeatureDashboardComponent implements OnInit {
     private featureDashboardFacadeService: FeatureDashboardFacadeService
   ) {}
   
-  get users$(): Observable<UserGetResposeDto[]> {
-    return this.featureDashboardFacadeService.getUsers$();
-  }
-
-  get isUsersLoading$(): Observable<boolean> {
-    return this.featureDashboardFacadeService.isUsersLoading$();
-  }
-
   get breadcrumbs(): Menu[] {
     return this.featureDashboardFacadeService.getBreadcrumbs();
   }
 
-  ngOnInit(): void {
-    this.featureDashboardFacadeService.getToken();
-    this.featureDashboardFacadeService.setLocalStorageData();
-    this.featureDashboardFacadeService.getLocalStorageData();
-  }
+  ngOnInit(): void {}
 
   onMenuItemClick(menuItem: MenuItem): void {
     switch(menuItem) {
