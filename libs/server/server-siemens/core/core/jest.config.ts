@@ -1,11 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'server-server-api-core-core',
+  displayName: 'server-server-siemens-core-core',
   preset: '../../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }]
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../../../coverage/libs/server/server-api/core/core'
+  coverageDirectory: '../../../../../coverage/libs/server/server-siemens/core/core'
 };

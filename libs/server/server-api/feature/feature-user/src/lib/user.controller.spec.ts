@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 import { UserCreateDto, UserGetDto, UserUpdateDto } from './dtos';
 import { User } from '@prisma/client';
 import { PrismaClientModule } from '@exe/server/shared/prisma-client';
-import { AuthKeycloakModule } from '@exe/server/server-api/core/auth-keycloak';
+import { AuthKeycloakModule } from '@exe/server/shared/auth-keycloak';
 
 describe('UserController', () => {
   let userController: UserController;
