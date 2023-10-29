@@ -59,6 +59,9 @@
       "@exe/server/server-api/core/core": ["libs/server/server-api/core/core/src/index.ts"],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
       "@exe/server/server-api/shared/socket-io": ["libs/server/server-api/shared/socket-io/src/index.ts"],
+      "@exe/server/server-siemens/feature/communication": [
+        "libs/server/server-siemens/feature/communication/src/index.ts"
+      ],
       "@exe/server/shared/auth-keycloak": ["libs/server/shared/auth-keycloak/src/index.ts"],
       "@exe/server/shared/logger-pino": ["libs/server/shared/logger-pino/src/index.ts"],
       "@exe/server/shared/pagination": ["libs/server/shared/pagination/src/index.ts"],
