@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core';
-import { Transport } from '@nestjs/microservices';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
@@ -18,14 +17,6 @@ async function bootstrap() {
       } 
     })
   );
-  app.connectMicroservice({
-    transport: Transport.TCP,
-    options: {
-      host: 'localhost',
-      port: 3001,
-      inheritAppConfig: true
-    }
-  });
 
   // Swagger configuration
   SwaggerModule.setup(globalPrefix, app, SwaggerModule.createDocument(app, new DocumentBuilder()
@@ -37,7 +28,6 @@ async function bootstrap() {
     .build()
   ));
 
-  await app.startAllMicroservices();
   await app.listen(port);
 
   // Info log

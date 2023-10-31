@@ -1,11 +1,12 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
+import { Observable, of } from 'rxjs';
 
 @Controller()
-export class CommunicationController {
-
+export class FeatureCommunicationController {
+  
   @MessagePattern('getData')
-  getData(): Promise<boolean> {
-    return Promise.resolve(true);
+  getData(): Observable<boolean> {
+    return of(true);
   }
 }
