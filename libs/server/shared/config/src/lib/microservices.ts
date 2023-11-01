@@ -1,16 +1,23 @@
 import { ClientProviderOptions, Transport } from '@nestjs/microservices';
 
-export interface Microservices {
+const rabbitMQUrl = 'amqp://localhost:5672';
+
+interface Microservices {
     SERVER_SIEMENS: ClientProviderOptions;
 }
 
 export const MICROSERVICES: Microservices = {
     SERVER_SIEMENS: {
         name: 'SERVER_SIEMENS',
-        transport: Transport.TCP,
+        transport: Transport.RMQ,
         options: {
-            host: 'localhost',
-            port: 3001
+          urls: [
+            rabbitMQUrl
+        ],
+          queue: 'SERVER_SIEMENS_QUEUE',
+          queueOptions: {
+            durable: false
+          },
         }
     }
 }
