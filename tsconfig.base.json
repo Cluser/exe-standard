@@ -56,11 +56,20 @@
       "@exe/client/shared/components": ["libs/client/shared/components/src/index.ts"],
       "@exe/client/shared/data-access": ["libs/client/shared/data-access/src/index.ts"],
       "@exe/client/shared/socket-io": ["libs/client/shared/socket-io/src/index.ts"],
-      "@exe/server/server-api/core/auth-keycloak": ["libs/server/server-api/core/auth-keycloak/src/index.ts"],
       "@exe/server/server-api/core/core": ["libs/server/server-api/core/core/src/index.ts"],
-      "@exe/server/server-api/core/logger-pino": ["libs/server/server-api/core/logger-pino/src/index.ts"],
+      "@exe/server/server-api/feature/feature-communication": [
+        "libs/server/server-api/feature/feature-communication/src/index.ts"
+      ],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
       "@exe/server/server-api/shared/socket-io": ["libs/server/server-api/shared/socket-io/src/index.ts"],
+      "@exe/server/server-siemens/core/core": [
+        "libs/server/server-siemens/core/core/src/index.ts",
+      ],
+      "@exe/server/server-siemens/feature/feature-communication": [
+        "libs/server/server-siemens/feature/feature-communication/src/index.ts"
+      ],
+      "@exe/server/shared/auth-keycloak": ["libs/server/shared/auth-keycloak/src/index.ts"],
+      "@exe/server/shared/logger-pino": ["libs/server/shared/logger-pino/src/index.ts"],
       "@exe/server/shared/pagination": ["libs/server/shared/pagination/src/index.ts"],
       "@exe/server/shared/prisma-client": ["libs/server/shared/prisma-client/src/index.ts"]
     }
