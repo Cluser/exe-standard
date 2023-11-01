@@ -1,18 +1,12 @@
 import { Module } from '@nestjs/common';
+import { ClientsModule } from '@nestjs/microservices';
+import { MICROSERVICES } from '@exe/server/shared/config';
 import { FeatureCommunicationController } from './feature-communication.controller';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
     ClientsModule.register([
-      {
-        name: 'SERVER_SIEMENS',
-        transport: Transport.TCP,
-        options: {
-          host: 'localhost',
-          port: 3001,
-        },
-      }
+      MICROSERVICES.SERVER_SIEMENS
     ]),
   ],
   controllers: [FeatureCommunicationController],
