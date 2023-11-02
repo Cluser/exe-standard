@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const NodeS7 = require('@st-one-io/nodes7');
 
 @Injectable()
