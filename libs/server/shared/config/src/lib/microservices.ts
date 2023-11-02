@@ -13,7 +13,7 @@ export const MICROSERVICES: Microservices = {
         options: {
           urls: [
             rabbitMQUrl
-        ],
+          ],
           queue: 'SERVER_SIEMENS_QUEUE',
           queueOptions: {
             durable: false
