@@ -52,6 +52,7 @@
     "@ngrx/store-devtools": "^16.2.0",
     "@nx/angular": "16.7.1",
     "@prisma/client": "^5.1.1",
+    "@st-one-io/nodes7": "^1.1.0",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3",
     "axios": "^1.6.0",
