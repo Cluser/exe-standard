@@ -60,6 +60,9 @@
       "@exe/server/server-api/feature/feature-communication": [
         "libs/server/server-api/feature/feature-communication/src/index.ts"
       ],
+      "@exe/server/server-api/feature/feature-healthcheck": [
+        "libs/server/server-api/feature/feature-healthcheck/src/index.ts"
+      ],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
       "@exe/server/server-api/shared/socket-io": ["libs/server/server-api/shared/socket-io/src/index.ts"],
       "@exe/server/server-siemens/core/core": ["libs/server/server-siemens/core/core/src/index.ts"],
