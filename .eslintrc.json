@@ -49,6 +49,10 @@
                 "onlyDependOnLibsWithTags": ["scope:server-server-api", "type:feature", "type:core", "type:shared", "type:util"]
               },
               {
+                "sourceTag": "scope:server-server-files",
+                "onlyDependOnLibsWithTags": ["scope:server-server-siemens", "type:feature", "type:core", "type:shared", "type:util"]
+              },
+              {
                 "sourceTag": "scope:server-server-siemens",
                 "onlyDependOnLibsWithTags": ["scope:server-server-siemens", "type:feature", "type:core", "type:shared", "type:util"]
               },

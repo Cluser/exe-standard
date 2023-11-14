@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { User } from '.prisma/client';
+import { User } from '@prisma/client/users';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UserGetResposeDto implements User {

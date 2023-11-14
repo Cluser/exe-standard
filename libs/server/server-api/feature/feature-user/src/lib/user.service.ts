@@ -8,7 +8,6 @@ export class UserService {
   constructor(private readonly prismaClientService: PrismaClientService) {}
 
   getUsers(userGet: UserGetDto): Promise<User[]> {
-    console.log(typeof userGet.id);
     return this.prismaClientService.user.findMany({
       where: {
         id: {
