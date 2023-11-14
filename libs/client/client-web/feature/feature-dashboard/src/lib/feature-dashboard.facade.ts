@@ -1,50 +1,56 @@
 import { Injectable } from '@angular/core';
-import { UsersFacadeService } from '@exe/client/client-web/shared/store';
-import { UserGetResposeDto } from '@exe/client/shared/data-access';
 import { KeycloakService } from 'keycloak-angular';
-import { LocalStorageService, LOCAL_STORAGE } from '@exe/client/client-web/shared/local-storage'
-import { Observable } from 'rxjs';
+import { MenuItem } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { NavigationService } from '@exe/client/client-web/shared/navigation';
+import { UserProfileModalComponent } from '@exe/client/client-web/shared/modal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeatureDashboardFacadeService {
+  constructor(
+    private keycloakService: KeycloakService,
+    private navigationService: NavigationService,  
+    private dialogService: DialogService
+  ) {}
 
-    constructor(
-        private keycloakService: KeycloakService,
-        private localStorageService: LocalStorageService,
-        private usersFacadeService: UsersFacadeService
-    ) {}
+  logout(): void {
+    this.keycloakService.logout();
+  }
 
-    getToken(): void {
-        this.keycloakService.getToken().then((token) => {
-            console.log(token);
-        });
-        console.log(this.keycloakService.getUserRoles());
-        console.log(this.keycloakService.getUsername());
-    }
+  navigateToDashboard(): void {
+    return this.navigationService.navigateToDashboard();
+  }
 
-    fetchUsers$(): void {
-        return this.usersFacadeService.fetchUsers();
-    }
+  navigateToConfiguration(): void {
+    return this.navigationService.navigateToConfiguration();
+  }
 
-    isUsersLoading$(): Observable<boolean> {
-        return this.usersFacadeService.isUsersLoading$();
-    }
+  getBreadcrumbs(): MenuItem[] {
+    const breadcrumbs: string[] = this.navigationService.getBreadcrumbs();
+    return breadcrumbs.map((breadcrumb, index) => {
+      return { 
+        label: breadcrumb, 
+        url: breadcrumbs.slice(0, index + 1).join('/')
+      };
+    });
+  }
 
-    getUsers$(): Observable<UserGetResposeDto[]> {
-        return this.usersFacadeService.getUsers$();
-    }
-
-    logout(): void {
-        this.keycloakService.logout();
-    }
-
-    setLocalStorageData(): void {  
-        return this.localStorageService.setItem(LOCAL_STORAGE.PARAMETER_01, { name: LOCAL_STORAGE.PARAMETER_01, value: 'VALUE_01' })
-    }
-
-    getLocalStorageData(): void {
-        return console.log(this.localStorageService.getItem(LOCAL_STORAGE.PARAMETER_01))
-    }
+  onUsersSettingsClick(): void {
+    this.dialogService.open(UserProfileModalComponent, {
+      header: 'Edycja profilu użytkownika',
+      width: '600px',
+      data: {
+        user: {
+          name: 'John',
+          surname: 'Doe'
+        }
+      },
+      draggable: true,
+    }).onClose.subscribe((result) => {
+        console.log(result)
+      }
+    );
+  }
 }

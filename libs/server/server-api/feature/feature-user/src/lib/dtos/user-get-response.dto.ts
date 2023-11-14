@@ -1,19 +1,21 @@
-import { User } from ".prisma/client";
-import { ApiProperty } from "@nestjs/swagger";
+/* istanbul ignore file */
+
+import { User } from '@prisma/client/users';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class UserGetResposeDto implements User {
-    @ApiProperty()
-    id: number;
+  @ApiProperty()
+  id: number;
 
-    @ApiProperty()
-    name: string;
+  @ApiProperty()
+  name: string;
 
-    @ApiProperty()
-    surname: string;
-  
-    constructor(id: number, name: string, surname: string) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-    }
+  @ApiProperty()
+  surname: string;
+
+  constructor(id: number, name: string, surname: string) {
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+  }
 }

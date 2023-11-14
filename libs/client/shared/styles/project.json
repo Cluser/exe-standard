@@ -3,7 +3,7 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/shared/styles/src",
   "prefix": "exe",
-  "tags": [],
+  "tags": ["scope:client-shared-styles", "type:ui"],
   "projectType": "library",
   "targets": {
     "test": {
@@ -24,10 +24,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/client/shared/styles/**/*.ts",
-          "libs/client/shared/styles/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/client/shared/styles/**/*.ts", "libs/client/shared/styles/**/*.html"]
       }
     }
   }

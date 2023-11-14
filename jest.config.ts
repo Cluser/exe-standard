@@ -1,17 +1,16 @@
 import { getJestProjects } from '@nx/jest';
-console.log('sssss')
+
 export default {
   projects: getJestProjects(),
-  collectCoverage: false,
+  collectCoverage: true,
   coverageThreshold: {
     global: {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: -10,
-    },
+      statements: -10
+    }
   },
-  coverageReporters: [
-    'json'
-  ]
+  coverageReporters: ['text', 'json', 'html'],
+  coveragePathIgnorePatterns: ['*.dto.ts']
 };

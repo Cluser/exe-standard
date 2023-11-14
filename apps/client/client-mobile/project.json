@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "exe",
   "sourceRoot": "apps/client/client-mobile/src",
-  "tags": [],
+  "tags": ["scope:client-client-mobile", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -80,10 +80,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/client/client-mobile/**/*.ts",
-          "apps/client/client-mobile/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/client/client-mobile/**/*.ts", "apps/client/client-mobile/**/*.html"]
       }
     },
     "test": {

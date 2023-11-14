@@ -1,12 +1,14 @@
+/* istanbul ignore file */
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeatureDashboardComponent } from './feature-dashboard.component';
 
 export const routes: Routes = [
-    { 
-        path: '', 
-        component: FeatureDashboardComponent
-    }
+  {
+    path: '',
+    component: FeatureDashboardComponent
+  }
 ];
 
 @NgModule({

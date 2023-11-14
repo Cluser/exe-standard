@@ -1,0 +1,18 @@
+<div class="container">
+    <span class="breadcrumbs">
+        <p-breadcrumb [model]="breadcrumbs" [home]="home" [style]="{border: 'none'}"></p-breadcrumb>
+    </span>
+    <span class="menu" >
+        <span #logout>
+            <p-avatar
+                class="menu__icon"
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" 
+                severity="danger" 
+                tooltip="Użytkownik"
+                size="large"
+            ></p-avatar>
+        </span>
+        <p-contextMenu [target]="logout" [model]="items" triggerEvent="click"></p-contextMenu>
+    </span>
+</div>
+

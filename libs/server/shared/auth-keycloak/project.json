@@ -26,5 +26,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:server-shared-auth-keycloak", "type:util"]
 }

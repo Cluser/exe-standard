@@ -33,23 +33,53 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
+      "@exe/client/client-web/core/auth-keycloak": ["libs/client/client-web/core/auth-keycloak/src/index.ts"],
+      "@exe/client/client-web/core/core": ["libs/client/client-web/core/core/src/index.ts"],
+      "@exe/client/client-web/core/http-errors-handler": [
+        "libs/client/client-web/core/http-errors-handler/src/index.ts"
+      ],
+      "@exe/client/client-web/core/store": ["libs/client/client-web/core/store/src/index.ts"],
+      "@exe/client/client-web/core/transloco": ["libs/client/client-web/core/transloco/src/index.ts"],
       "@exe/client/client-web/feature/feature-dashboard": [
         "libs/client/client-web/feature/feature-dashboard/src/index.ts"
       ],
-      "@exe/client/client-web/shared/auth-keycloak": ["libs/client/client-web/shared/auth-keycloak/src/index.ts"],
-      "@exe/client/client-web/shared/http-errors-handler": [
-        "libs/client/client-web/shared/http-errors-handler/src/index.ts"
-      ],
+      "@exe/client/client-web/shared/guards": ["libs/client/client-web/shared/guards/src/index.ts"],
       "@exe/client/client-web/shared/loader": ["libs/client/client-web/shared/loader/src/index.ts"],
       "@exe/client/client-web/shared/local-storage": ["libs/client/client-web/shared/local-storage/src/index.ts"],
+      "@exe/client/client-web/shared/modal": ["libs/client/client-web/shared/modal/src/index.ts"],
+      "@exe/client/client-web/shared/navigation": ["libs/client/client-web/shared/navigation/src/index.ts"],
+      "@exe/client/client-web/shared/not-authorized": ["libs/client/client-web/shared/not-authorized/src/index.ts"],
       "@exe/client/client-web/shared/not-found": ["libs/client/client-web/shared/not-found/src/index.ts"],
+      "@exe/client/client-web/shared/resolvers": ["libs/client/client-web/shared/resolvers/src/index.ts"],
       "@exe/client/client-web/shared/session-storage": ["libs/client/client-web/shared/session-storage/src/index.ts"],
       "@exe/client/client-web/shared/shared": ["libs/client/client-web/shared/shared/src/index.ts"],
-      "@exe/client/client-web/shared/store": ["libs/client/client-web/shared/store/src/index.ts"],
       "@exe/client/shared/components": ["libs/client/shared/components/src/index.ts"],
       "@exe/client/shared/data-access": ["libs/client/shared/data-access/src/index.ts"],
+      "@exe/client/shared/socket-io": ["libs/client/shared/socket-io/src/index.ts"],
+      "@exe/server/server-api/core/core": ["libs/server/server-api/core/core/src/index.ts"],
+      "@exe/server/server-api/feature/feature-communication": [
+        "libs/server/server-api/feature/feature-communication/src/index.ts"
+      ],
+      "@exe/server/server-api/feature/feature-files": ["libs/server/server-api/feature/feature-files/src/index.ts"],
+      "@exe/server/server-api/feature/feature-healthcheck": [
+        "libs/server/server-api/feature/feature-healthcheck/src/index.ts"
+      ],
       "@exe/server/server-api/feature/feature-user": ["libs/server/server-api/feature/feature-user/src/index.ts"],
+      "@exe/server/server-api/shared/file-upload": ["libs/server/server-api/shared/file-upload/src/index.ts"],
+      "@exe/server/server-api/shared/socket-io": ["libs/server/server-api/shared/socket-io/src/index.ts"],
+      "@exe/server/server-files/core/prisma-client": ["libs/server/server-files/core/prisma-client/src/index.ts"],
+      "@exe/server/server-files/feature/feature-file-download": [
+        "libs/server/server-files/feature/feature-file-download/src/index.ts"
+      ],
+      "@exe/server/server-files/feature/feature-file-upload": [
+        "libs/server/server-files/feature/feature-file-upload/src/index.ts"
+      ],
+      "@exe/server/server-siemens/core/core": ["libs/server/server-siemens/core/core/src/index.ts"],
+      "@exe/server/server-siemens/feature/feature-communication": [
+        "libs/server/server-siemens/feature/feature-communication/src/index.ts"
+      ],
       "@exe/server/shared/auth-keycloak": ["libs/server/shared/auth-keycloak/src/index.ts"],
+      "@exe/server/shared/config": ["libs/server/shared/config/src/index.ts"],
       "@exe/server/shared/logger-pino": ["libs/server/shared/logger-pino/src/index.ts"],
       "@exe/server/shared/pagination": ["libs/server/shared/pagination/src/index.ts"],
       "@exe/server/shared/prisma-client": ["libs/server/shared/prisma-client/src/index.ts"]

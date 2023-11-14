@@ -1,12 +1,14 @@
 <div class="container">
-    <button class="button" (click)="onLogoutClick()">Logout</button>
-
-    <exe-loader [isLoading]="isUsersLoading$ | async">
-        <ol>
-            <li *ngFor="let user of users$ | async">
-                {{ user.name }} {{ user.surname }}
-            </li>
-        </ol>
-    </exe-loader>
+    <div class="menu">
+        <exe-menu (menuItemClick)="onMenuItemClick($event)"></exe-menu>
+    </div>
+    <div class="top-bar">
+        <exe-top-bar [breadcrumbs]="breadcrumbs" (itemClick)="onTopBarItemClick($event)"></exe-top-bar>
+    </div>
+    <div class="content">
+        <exe-content></exe-content>
+    </div>
 </div>
+
+
 

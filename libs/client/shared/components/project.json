@@ -3,7 +3,7 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/shared/components/src",
   "prefix": "exe",
-  "tags": ["components"],
+  "tags": ["scope:client-shared-components", "type:ui"],
   "projectType": "library",
   "targets": {
     "test": {
@@ -24,10 +24,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/client/shared/components/**/*.ts",
-          "libs/client/shared/components/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/client/shared/components/**/*.ts", "libs/client/shared/components/**/*.html"]
       }
     }
   }
