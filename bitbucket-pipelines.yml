@@ -7,7 +7,7 @@ pipelines:
           caches: # optional
             - node
           script:
-            - npm ci
+            - npm ci --legacy-peer-deps
             - npx nx format:check
             - npx nx affected -t lint,test,build --base=origin/master --head=HEAD --configuration=ci
 
@@ -18,6 +18,6 @@ pipelines:
           caches: # optional
             - node
           script:
-            - npm ci
+            - npm ci --legacy-peer-deps
             - npx nx format:check
             - npx nx affected -t lint,test,build --base=HEAD~1 --configuration=ci
