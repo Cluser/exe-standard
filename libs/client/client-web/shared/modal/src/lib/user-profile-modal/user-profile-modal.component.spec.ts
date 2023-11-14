@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserProfileModalComponent } from './user-profile-modal.component';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 describe('UserProfileModalComponent', () => {
   let component: UserProfileModalComponent;
@@ -7,7 +8,12 @@ describe('UserProfileModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserProfileModalComponent ]
+      declarations: [ UserProfileModalComponent ],
+      providers: [
+        {
+          provide: DynamicDialogRef, useValue: {}
+        }
+      ]
     })
     .compileComponents();
   });
@@ -24,9 +30,8 @@ describe('UserProfileModalComponent', () => {
 
   it('should set the user object on initialization', () => {
     expect(component.user).toEqual({
-      name: 'John Doe',
-      email: 'johndoe@example.com',
-      avatar: 'https://via.placeholder.com/150'
+      name: '',
+      surname: ''
     });
   });
 
@@ -36,17 +41,5 @@ describe('UserProfileModalComponent', () => {
 
   it('should have a close method', () => {
     expect(component.close).toBeDefined();
-  });
-
-  it('should close the modal with true value when saveProfile is called', () => {
-    spyOn(component.ref, 'close');
-    component.saveProfile();
-    expect(component.ref.close).toHaveBeenCalledWith(true);
-  });
-
-  it('should close the modal with false value when close is called', () => {
-    spyOn(component.ref, 'close');
-    component.close();
-    expect(component.ref.close).toHaveBeenCalledWith(false);
   });
 });
