@@ -62,16 +62,21 @@ export class FeatureFilesController {
     );
   }
 
-      /**
-     * Downloads a file from the server and returns it as a StreamableFile.
-     * @returns A StreamableFile of the downloaded file.
-     */
-      @Get('downloadFile')
-      @Header('Content-Type', 'application/json')
-      async getStaticFile(): Promise<StreamableFile> {
-        const path = await this.serverFilesClient.send<string>('downloadFile', { id: 5 }).toPromise();
-        const file = createReadStream(path as string);
-        return new StreamableFile(file);
-      }
+    /**
+   * Downloads a file from the server and returns it as a StreamableFile.
+   * @returns A StreamableFile of the downloaded file.
+   */
+    @Get('downloadFile')
+    @Header('Content-Type', 'application/json')
+    async getStaticFile(): Promise<StreamableFile> {
+      const path = await this.serverFilesClient.send<string>('downloadFile', { id: 5 }).toPromise();
+      const file = createReadStream(path as string);
+      return new StreamableFile(file);
+    }
+
+    @Get('getFiles')
+    getFiles(): Observable<any> {
+      return this.serverFilesClient.send('getFiles', {});
+    }
   
 }
