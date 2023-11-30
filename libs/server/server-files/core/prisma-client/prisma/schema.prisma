@@ -1,0 +1,18 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db/database.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../../../../node_modules/@prisma/client/server-files"
+}
+
+model File {
+  id              Int      @id @default(autoincrement())
+  name            String
+  mimetype        String
+  path            String
+  size            Int
+  uploadDateTime  DateTime @default(now())
+}

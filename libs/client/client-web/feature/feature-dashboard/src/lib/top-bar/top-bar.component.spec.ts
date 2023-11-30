@@ -4,6 +4,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { BadgeModule } from 'primeng/badge';
+import { ActivatedRoute } from '@angular/router';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
@@ -12,7 +13,11 @@ describe('TopBarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AvatarModule, ContextMenuModule, BreadcrumbModule, BadgeModule],
-      declarations: [TopBarComponent]
+      declarations: [TopBarComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {}
+      }]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopBarComponent);
