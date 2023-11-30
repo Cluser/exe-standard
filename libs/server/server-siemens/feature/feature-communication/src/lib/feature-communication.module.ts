@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { FeatureCommunicationController } from './feature-communication.controller';
-import { PlcSiemensModule } from '@exe/server/server-siemens/shared/plc-siemens';
+import { FeatureCommunicationService } from './feature-communication.service';
 
 @Module({
-  imports: [PlcSiemensModule],
+  imports: [],
   controllers: [FeatureCommunicationController],
-  providers: [],
+  providers: [FeatureCommunicationService],
   exports: []
 })
 export class FeatureCommunicationModule {}

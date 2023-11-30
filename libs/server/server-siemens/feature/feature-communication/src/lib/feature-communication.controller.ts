@@ -1,16 +1,35 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { Observable, of } from 'rxjs';
-import { PlcSiemensService } from '@exe/server/server-siemens/shared/plc-siemens';
+import { Observable } from 'rxjs';
+import { FeatureCommunicationService } from './feature-communication.service';
 
 @Controller()
 export class FeatureCommunicationController {
 
-  constructor(private plcSiemensService: PlcSiemensService) {}
+  constructor(private featureCommunicationService: FeatureCommunicationService) {}
+
+  @MessagePattern('isConnected')
+  isConnected(): Observable<boolean> {
+    return this.featureCommunicationService.isConnected();
+  }
+
+  @MessagePattern('connect')
+  connect(): Observable<boolean> {
+    return this.featureCommunicationService.connect();
+  }
+
+  @MessagePattern('disconnect')
+  disconnect(): Observable<boolean> {
+    return this.featureCommunicationService.disconnect();
+  }
   
-  @MessagePattern('getData')
-  getData(): Observable<boolean> {
-    this.plcSiemensService.connect();
-    return of(true);
+  @MessagePattern('readData')
+  readData(): Observable<boolean> {
+    return this.featureCommunicationService.readData();
+  }
+  
+  @MessagePattern('writeData')
+  writeData(): Observable<boolean> {
+    return this.featureCommunicationService.writeData();
   }
 }
