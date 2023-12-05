@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      
+  # server-api:
+  #   container_name: server-api
+  #   build:
+  #     context: ../
+  #     dockerfile: ./apps/server/server-api/dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - rabbitmq
+
+  client-web:
+    container_name: client-web
+    build:
+      context: ../
+      dockerfile: ./apps/client/client-web/dockerfile
+    ports:
+      - "4200:4200"
+    # depends_on:
+    #   - server-api

@@ -1,0 +1,29 @@
+# Wybierz obraz bazowy
+FROM node:20.9.0 as build
+
+# Ustaw katalog roboczy w kontenerze
+WORKDIR /app
+
+# Kopiuj pliki package.json i package-lock.json
+COPY package*.json ./
+
+# Zainstaluj zależności
+RUN npm ci
+
+# Kopiuj resztę plików
+COPY . .
+
+# Zbuduj aplikację
+RUN npm run build
+
+# Faza produkcyjna
+FROM nginx:1.19.0-alpine as production
+
+# Kopiuj pliki statyczne do serwera nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Otwórz port 80
+EXPOSE 80
+
+# Uruchom nginx
+CMD ["nginx", "-g", "daemon off;"]
