@@ -1,29 +1,13 @@
-# Wybierz obraz bazowy
-FROM node:20.9.0 as build
-
-# Ustaw katalog roboczy w kontenerze
+# Stage 1: Budowanie aplikacji Angular
+FROM node:latest as build
 WORKDIR /app
-
-# Kopiuj pliki package.json i package-lock.json
 COPY package*.json ./
-
-# Zainstaluj zależności
 RUN npm ci
-
-# Kopiuj resztę plików
 COPY . .
+RUN npm run build:client-web
 
-# Zbuduj aplikację
-RUN npm run build
-
-# Faza produkcyjna
-FROM nginx:1.19.0-alpine as production
-
-# Kopiuj pliki statyczne do serwera nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Otwórz port 80
+# Stage 2: Tworzenie obrazu Nginx i kopiowanie skompilowanych plików aplikacji
+FROM nginx:latest
+COPY --from=build app/dist/apps/client/client-web /usr/share/nginx/html
 EXPOSE 80
-
-# Uruchom nginx
 CMD ["nginx", "-g", "daemon off;"]

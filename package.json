@@ -2,11 +2,16 @@
   "name": "@exe/source",
   "version": "0.0.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start:client-web": "nx serve client-client-web",
     "start:server-api": "nx serve server-server-api",
     "start:server-files": "nx serve server-server-files",
     "start:server-siemens": "nx serve server-server-siemens",
+    "build:client-web": "nx build client-client-web",
+    "build:server-api": "nx build server-server-api",
+    "build:server-files": "nx build server-server-files",
+    "build:server-siemens": "nx build server-server-siemens",
     "lint:all": "nx run-many --target=lint",
     "format:all": "nx format:write",
     "test:all": "nx run-many --target=test",
@@ -45,6 +50,7 @@
     "@ngrx/store": "17.0.1",
     "@ngrx/store-devtools": "17.0.1",
     "@nx/angular": "17.1.3",
+    "@nx/esbuild": "^17.1.3",
     "@prisma/client": "^5.1.1",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3",
@@ -76,6 +82,9 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "17.0.2",
     "@angular/language-service": "17.0.2",
+    "@babel/core": "^7.23.5",
+    "@babel/plugin-proposal-decorators": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
     "@nestjs/schematics": "^10.0.2",
     "@nestjs/testing": "^10.2.5",
     "@ngneat/spectator": "^15.0.1",
@@ -95,6 +104,7 @@
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
+    "esbuild-loader": "^4.0.2",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
@@ -111,7 +121,7 @@
     "prisma": "^5.1.1",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "webpack-node-externals": "^3.0.0"
   }
 }
-

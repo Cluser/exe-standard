@@ -14,8 +14,10 @@
         "outputPath": "dist/apps/server/server-api",
         "main": "apps/server/server-api/src/main.ts",
         "tsConfig": "apps/server/server-api/tsconfig.app.json",
+        "assets": [],
         "isolatedConfig": true,
-        "webpackConfig": "apps/server/server-api/webpack.config.js"
+        "webpackConfig": "apps/server/server-api/webpack.config.cjs",
+        "generatePackageJson": true
       },
       "configurations": {
         "development": {},
