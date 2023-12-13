@@ -1,12 +1,10 @@
 # exe-standard
 
-Jest to projekt będący standardową podstawą pod nowe projekty. Monorepo BE + FE. 
-W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikroserwisowa architektura ma pozwalać na skalowalność systemu. 
-Projekt korzysta z dobrodziejstw NX i zawiera określenie dozwolonych zależności między modułami co chroni nas przed nieprzyjemnymi błędami circular dependency.
-Architekturę oprogramowania można podglądać w nx graphie.
+This project is a standard basis for new projects. Monorepo BE + FE. It is intended to contain all the most necessary functionalities and its microservices architecture is supposed to allow scalability of the system. The project uses the benefits of NX and includes the definition of allowed dependencies between modules, which protects us from unpleasant circular dependency errors. The software architecture can be previewed in nx graph.
 
 
-# technologie
+
+# technologies
  - NestJS
  - Angular 17
  - NX
@@ -25,5 +23,5 @@ Architekturę oprogramowania można podglądać w nx graphie.
 
 **WORK IN PROGRESS**
 
-Próbka udostępniona na potrzeby rekrutacyjne ; )
+Sample provided for recruitment purposes ; )
  
