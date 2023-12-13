@@ -13,6 +13,7 @@ W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikro
  - Prisma
  - SocketIO
  - Jest
+ - OAuth 2.0 - Keycloak
  - Docker
 
 
