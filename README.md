@@ -12,6 +12,7 @@ W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikro
  - RxJS
  - Prisma
  - SocketIO
+ - Transloco
  - Jest
  - OAuth 2.0 - Keycloak
  - Docker
