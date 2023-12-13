@@ -15,6 +15,7 @@ W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikro
  - Transloco
  - Jest
  - OAuth 2.0 - Keycloak
+ - RabbitMq
  - Docker
 
 
