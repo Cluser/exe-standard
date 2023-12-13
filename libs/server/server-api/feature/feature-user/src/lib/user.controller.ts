@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiTags } from '@nestjs/swagger';
-import { User } from '@prisma/client';
+import { User } from '@prisma/client/users';
 import { UserService } from './user.service';
 import { Roles } from 'nest-keycloak-connect';
 import { ApiOkResponsePaginated, PaginatedResponseDto } from '@exe/server/shared/pagination';

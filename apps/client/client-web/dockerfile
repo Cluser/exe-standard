@@ -1,0 +1,13 @@
+# Stage 1: Budowanie aplikacji Angular
+FROM node:latest as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build:client-web
+
+# Stage 2: Tworzenie obrazu Nginx i kopiowanie skompilowanych plików aplikacji
+FROM nginx:latest
+COPY --from=build app/dist/apps/client/client-web /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

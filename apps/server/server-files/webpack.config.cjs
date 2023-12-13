@@ -4,5 +4,16 @@ const { composePlugins, withNx } = require('@nx/webpack');
 module.exports = composePlugins(withNx(), (config) => {
   // Update the webpack config as needed here.
   // e.g. `config.plugins.push(new MyPlugin())`
+  config.mode = 'production';
+  config.target = 'es2020';
+  config.experiments = {
+    outputModule: true
+  }
+  config.output.module = true;
+  config.resolve.fallback = {
+    "fs": false,
+    "os": false,
+    "path": false
+  }
   return config;
 });

@@ -10,12 +10,12 @@ async function bootstrap() {
 
   app.setGlobalPrefix(globalPrefix);
   app.enableCors({ origin: '*', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' });
-  app.useGlobalPipes(new ValidationPipe({ 
-      transform: true, 
-      transformOptions: { 
-        enableImplicitConversion: true 
-      } 
-    })
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    transformOptions: {
+      enableImplicitConversion: true
+    }
+  })
   );
 
   // Swagger configuration

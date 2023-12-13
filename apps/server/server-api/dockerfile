@@ -1,0 +1,21 @@
+# # # Stage 1: App build
+FROM node:20 as build
+WORKDIR /app
+COPY package*.json /app
+RUN npm ci
+COPY . /app
+WORKDIR /app/libs/server/shared/prisma-client/prisma
+RUN npx prisma generate
+RUN npx prisma db push
+WORKDIR /app
+CMD [ "npm", "run". "build:server-api" ]
+
+# # # Stage 2: App run
+FROM node:20 as production
+WORKDIR /app
+COPY --from=build /app/dist/apps/server/server-api /app
+COPY --from=build /app/node_modules /app/node_modules
+COPY --from=build /app/libs/server/shared/prisma-client /app/libs/server/shared/prisma-client
+EXPOSE 3000
+CMD [ "node", "main.js" ]
+

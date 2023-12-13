@@ -1,0 +1,88 @@
+version: '3.9'
+name: exe-app
+
+services:
+  postgres:
+    container_name: exe-app-postgres
+    image: postgres:13.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRESQL_DB}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+    # networks:
+    #   - local-exe-app
+      # network_mode: host
+
+  keycloak:
+    container_name: exe-app-keycloak
+    image: bitnami/keycloak:${KEYCLOAK_VERSION}
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_DATABASE: ${POSTGRESQL_DB}
+      DB_USER: ${POSTGRESQL_USER}
+      DB_PASSWORD: ${POSTGRESQL_PASS}
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USER}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+    ports:
+      - "28080:8080"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    # networks:
+    #   - local-exe-app
+    # network_mode: host
+
+  rabbitmq:
+    container_name: exe-app-rabbitmq
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    # networks:
+    #   - local-exe-app
+    # network_mode: host
+      
+  server-api:
+    container_name: exe-app-server-api
+    build:
+      context: ../
+      dockerfile: ./apps/server/server-api/Dockerfile
+    ports:
+      - "3000:3000"
+    # networks:
+    #   - local-exe-app
+    # network_mode: host
+    depends_on:
+      - rabbitmq
+
+  server-files:
+    container_name: exe-app-server-files
+    build:
+      context: ../
+      dockerfile: ./apps/server/server-files/Dockerfile
+    ports:
+      - "3001:3001"
+    # networks:
+    #   - local-exe-app
+    # network_mode: host
+    depends_on:
+      - rabbitmq
+
+  client-web:
+    container_name: exe-app-client-web
+    build:
+      context: ../
+      dockerfile: ./apps/client/client-web/Dockerfile
+    ports:
+      - "80:80"
+    # network_mode: host
+    depends_on:
+      - server-api
+
+# networks:
+#   local-exe-app:
