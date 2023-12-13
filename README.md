@@ -1,6 +1,7 @@
 # exe-standard
 
-Jest to projekt będący standardową podstawą pod nowe projekty. W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikroserwisowa architektura ma pozwalać na skalowalność systemu. 
+Jest to projekt będący standardową podstawą pod nowe projekty. Monorepo BE + FE. 
+W zamyśle ma zawierać wszelkie najpotrzebniejsze funkcjonalności a jego mikroserwisowa architektura ma pozwalać na skalowalność systemu. 
 
 
 # technologie
@@ -16,6 +17,8 @@ Jest to projekt będący standardową podstawą pod nowe projekty. W zamyśle ma
 
 
 
+
 **WORK IN PROGRESS**
+
 Próbka udostępniona na potrzeby rekrutacyjne ; )
  
